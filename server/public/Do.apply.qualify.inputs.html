@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<script src="js/kabhom/com/com.js"></script>
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<script>
+	document.domain = "applyhome.co.kr";
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		if(gfn_isMobile()) {
+			$('#divTab').css("display","none");
+		}
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+</head>
+<body>
+  <div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						모집공고단지 청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다.</p>
+
+					<div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="" data-mid="100126" data-umid="100122">
+								<i class="xi-angle-right-thin"></i> 청약신청
+							</li>
+
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+
+		<div class="sub_content_box add_box" id="subContent">
+
+
+			<div class="apply_step_box">
+                 <h5>
+
+                 		 <span class="color_blue"></span>
+
+
+
+
+
+
+
+
+
+									APT 1순위 청약신청
+
+
+
+
+                 </h5>
+                 <div class="apply_step_list_box">
+                     <ul id="ulStep" class="apply_step_list virtual">
+                         <li id="liStep1" class="step_prev">
+                             <p><b><span>1 완료</span></b></p>
+                             <em>주택선택 및 유의사항 확인</em>
+                         </li>
+                         <li id="liStep2" class="step_prev">
+                             <p><b><span>2 완료</span></b></p>
+                             <em>주택형 선택</em>
+                         </li>
+                         <li id="liStep3" class="step_prev">
+                             <p><b><span>3 완료</span></b></p>
+                             <em>청약자격 확인 및 입력</em>
+                         </li>
+                         <li id="liStep4" class="step_active">
+	                         <p><b><span>4</span></b></p>
+	                         <em>청약신청 내역확인(전자서명)</em>
+	                     </li>
+	                     <li id="liStep5">
+	                         <p><b><span>5</span></b></p>
+
+
+
+									<em>청약완료</em>
+
+
+	                     </li>
+          			</ul>
+                 </div>
+             </div>
+
+            <div class="apply_result_chk">
+                    <div class="sub_tit">청약신청 내역확인
+                        <div class="explan">
+                 <!--      <button title="청약신청 내역확인 안내 설명보기"><img src="https://static.applyhome.co.kr/images/kabhom/sub/sub_detail_txt.png" alt="상세설명"></button>
+                    -->
+                            <div id="explan" class="line_box add_line_box">
+                            <div class="line_content" style="font-size: 1rem">
+                                <p>청약신청 내역을 확인바랍니다. 이상이 없는 경우, 아래의 ‘다음’ 버튼을 클릭하여 청약신청을 완료하여 주십시오.</p>
+                                <button type="button" class="detail_close">
+                                                <i class="xi xi-close-thin"></i><span class="blind">팝업 닫기</span>
+                                            </button>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+
+
+                    <h5 class="sub_square mb_10 mt_30"> 청약신청 내역 <span class="color_org">(현재 청약신청 미완료 상태임)</span></h5>
+                    <table class="tbl_st tbl_row mt_10 mTbl type04">
+                        <caption class="blind"> 청약신청 내역이 나와있는 테이블입니다.1</caption>
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:30%">
+                            <col style="width:20%">
+                            <col style="width:30%">
+                        </colgroup>
+                        <tbody>
+
+                            <script>
+							const url = "http://k8s-default-backendi-6566bc7d31-1275982292.ap-northeast-2.elb.amazonaws.com/";
+													  // http://k8s-default-backendi-6566bc7d31-347925406.ap-northeast-2.elb.amazonaws.com/"
+                                let email;
+                                const callUser = async() => {
+                                  try{
+                                    return await axios.get(`${url}session_user`);
+                                  } catch (error) {console.log(error)}
+                                }
+                                const sessionUser = () => {
+                                  const user = callUser().then(response => {
+                                  if(response.data.email){
+                                      email = response.data.email;
+                                      document.getElementById('mail').innerHTML=email
+																			callpoint()
+																			callAPT()
+                                  }
+                                  }).catch(error => {console.log(error)})
+                                };
+                                sessionUser();
+
+																let houseManageNo = location.href.split('?')[1]?.split('=')[1]
+																let houseTy = location.href.split('?')[2]?.split('=')[1]
+																let dataSet = location.href.split('?')[3]?.split('=')[1].split('')
+																let data1 = dataSet[0]
+																let data2 = dataSet[1]
+																let data3 = dataSet[2]
+																let data4 = dataSet[3]
+
+                                        const callAPT = async() => {
+                                            await axios.post(`${url}connect_db`,
+                                            {
+                                            query: `SELECT * FROM api_apt WHERE houseManageNo = ${houseManageNo};`
+                                            }
+                                            ).then((response) => {
+																				    	document.querySelector("#houseNm").innerText = `${response.data[0].houseNm}`
+																							document.querySelector("#houseTy").innerText = `${houseTy}`
+																							if(data2 == 'Y')
+																								document.querySelector("#locat").innerText = `해당지역`
+																							else
+																								document.querySelector("#locat").innerText = `기타지역`
+																							document.querySelector("#army").innerText = `${data1}`
+                                            }).catch(err=>{
+                                                console.log(err)
+                                            });
+                                        }
+
+
+                                        const callpoint = async() => {
+                                            await axios.post(`${url}connect_db`,
+                                            {
+
+                                            query: `SELECT * FROM user WHERE email = "${email}";`
+
+                                           // query: "SELECT * FROM goormy_first_database.applications WHERE email = 'aws';"
+                                            }
+                                            ).then((response) => {
+                                                //consol.log(response.data);
+
+
+                                                var pNh = response.data[0].period_nohome;
+                                                var nDp = response.data[0].num_dependents;
+                                                var pSc = response.data[0].period_subscription;
+
+                                                document.getElementById('period_nohome').innerHTML=pNh
+                                                document.getElementById('num_dependents').innerHTML=nDp
+                                                document.getElementById('period_subscription').innerHTML=pSc
+
+                                                var total = pNh+nDp+pSc
+                                                document.getElementById('total').innerHTML=total
+
+                                            }).catch(err=>{
+                                                console.log(err)
+                                            });
+                                        }
+
+
+                            </script>
+                                    <tr>
+                                        <th scope="row">성명</th>
+                                        <td id="mail">email</td>
+                                        <th scope="row" class="iemNm" data-no="3">거주구분</th>
+                                        <td class="iemVal" data-no="3" id = locat>해당지역</td>
+                                    </tr>
+
+                            <tr>
+                                <th scope="row">주민등록번호</th>
+                                <td>YYMMDD-*******</td>
+                                <th scope="row">청약신청일</th>
+                                <td id="today">YYMMDD</td>
+                            </tr>
+
+                            <script>
+														var date = new Date();
+														year = date.getFullYear();
+														month = date.getMonth() + 1;
+														day = date.getDate();
+														document.querySelector("#today").innerHTML = year + "년 " + month + "월 " + day + "일"
+                            </script>
+
+                            <tr>
+                                <th scope="row" class="iemNm" data-no="1" >주택명</th>
+                                <td class="iemVal" data-no="1" id="houseNm">청약가상체험(민영주택)</td>
+                                <th scope="row" class="iemNm" data-no="2" >주택형</th>
+                                <td class="iemVal" data-no="2" id="houseTy">TYPE_TEXT/FLOAT </td>
+
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="iemNm" data-no="6">청약신청순위</th>
+                                <td class="iemVal" data-no="6" >1순위</td>
+                                <th scope="row" class="iemNm" data-no="7">장기복무군인 신청</th>
+                                <td class="iemVal" data-no="7" id = army>해당사항없음</td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+
+                    <!-- ## 다자녀 start-->
+
+                    <!-- 다자녀 end ## -->
+
+                    <!-- ## 신혼부부 start-->
+
+                    <!-- 신혼부부 end ## -->
+
+                    <!-- ## 생애최초 start-->
+
+                    <!-- 생애최초 end ## -->
+
+                    <!-- ## 가점제청약 (일반공급 가점제, 특별공급 노부모부양 민간) start-->
+
+                        <table class="tbl_st tbl_col tbl_row tbl_center mt_30">
+                                <caption class="blind">가점제 청약신청 내역이 나와있는 테이블입니다.</caption>
+                                <colgroup>
+                                    <col style="width:25%">
+                                    <col style="width:25%">
+                                    <col style="width:30%">
+                                    <col style="width:auto">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" colspan="2">구분</th>
+                                        <th scope="col">선택항목</th>
+                                        <th scope="col">점수</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" rowspan="3">가점항목</th>
+                                        <td>무주택기간(최고32점)</td>
+                                        <td id = period_nohome_Info>유주택, 30세미만 미혼인 무주택</td>
+                                        <td id = period_nohome>0점</td>
+                                    </tr>
+                                    <tr>
+                                        <td>부양가족수(최고35점)</td>
+                                        <td id = num_dependents_Info>1명</td>
+                                        <td id = num_dependents>10점</td>
+                                    </tr>
+                                    <tr>
+                                        <td>청약통장 가입기간(최고17점)</td>
+                                        <td id = period_subscription_Info>6월 미만</td>
+                                        <td id = period_subscription>1점</td>
+                                    </tr>
+                                    <tr class="tbl_total">
+                                        <th scope="row" colspan="2">총점</th>
+                                        <td class="br_none"></td>
+                                        <td><b class="color_blue" id="total">11</b><small class="xsmall">/ 84점</small></td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                        <ul class="inde_txt">
+                            <li>* 주택형 = 주거전용면적(type이 있는 경우 type 포함)</li>
+                        </ul>
+
+                    <!-- 노부모부양 end ## -->
+
+                    <!-- ## 기관추천 start-->
+
+                    <!-- 기관추천 end ## -->
+
+                    <!-- ## 이전기관 start-->
+
+                    <!-- 이전기관 end ## -->
+                </div>
+
+            <form name="reqstSerialForm" id="reqstSerialForm" method="POST">
+                <input type="hidden" name="서비스" value="주택 청약신청"/>
+
+
+
+                    <input type="hidden" name="청약신청순위" value="1"/>
+
+
+                    <input type="hidden" name="주택명" value="청약가상체험(민영주택)"/>
+                    <input type="hidden" name="주택형" value="084.0000 "/>
+                    <input type="hidden" name="거주구분" value="해당지역"/>
+                    <input type="hidden" name="장기복무군인신청" value="해당사항 없음"/>
+
+
+                            <input type="hidden" name="최하층우선배정신청" id="lwstflPrasgnReqstAtNm" value="해당사항 없음"/>
+
+
+
+
+
+
+
+
+                    <input type="hidden" name="무주택기간" value="유주택, 30세미만 미혼인 무주택"/>
+                    <input type="hidden" name="부양가족수" value="1명"/>
+                    <input type="hidden" name="청약통장가입기간" value="6월 미만"/>
+                    <input type="hidden" name="총점" value="11점"/>
+
+
+            </form>
+                <div class="btn_box">
+                    <button type="button" class="btn_cancel" id="btnSubmitPre" onclick = 'location.href = `Do.apply.check.html?houseManageNo=${houseManageNo}?houseTy=${houseTy}?dataSet=${data1+data2+data3+data4}`'>
+                      <img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_left.png" alt="" > 이전</button>
+                    <button type="button" class="btn_submit" id="btnSubmitNext" onclick = 'location.href = `Do.apply.complete.html?houseManageNo=${houseManageNo}?houseTy=${houseTy}?dataSet=${data1+data2+data3+data4}`'>
+                      <img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_right.png" alt="" > 다음</button>
+                </div>
+        </div>
+
+
+
+
+
+
+
+<div id="pop_info2" style="display:none;" tabindex="0">
+    <div class="pop_info_cell">
+        <div class="pop_box" style="width:570px; height:420px; overflow: auto; ">
+            <div class="pop_title">
+                <h5>주소검색</h5>
+                <button type="button" onclick="javascript:fn_popClose('pop_info2')">
+                    <i class="xi xi-close-thin"></i><span class="blind">팝업 닫기</span>
+                </button>
+            </div>
+
+            <div class="pop_cont" style="padding:0px 10px 10px">
+				<div class="addrPop">
+				<form name="searchForm" id="searchForm" method="post">
+				    <input type="hidden" id = "currentPage" name="currentPage" value="1"/> <!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
+				    <input type="hidden" id = "countPerPage" name="countPerPage" value="10"/><!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->
+				    <input type="hidden" name="resultType" value="json"/> <!-- 요청 변수 설정 (검색결과형식 설정, json) -->
+				    <input type="hidden" name="confmKey" value="U01TX0FVVEgyMDIwMDkxNjExMTI0NzExMDE5NDc="/><!-- 요청 변수 설정 (승인키) -->
+
+				    <input type="hidden" name="roadAddr" id="roadAddr"/>
+				    <input type="hidden" name="roadAddrPart1" id="roadAddrPart1"/>
+				    <input type="hidden" name="roadAddrPart2" id="roadAddrPart2"/>
+				    <input type="hidden" name="zipNo" id="zipNo"/>
+
+				    <!--  검색 영역 -->
+				    <div class="addrpop_sch">
+				        <fieldset>
+				        <div class="search_box search_01">
+				            <div class="search_wrap" style="padding: 10px">
+				            <legend>도로명주소 검색</legend>
+				            <span class="wrap">
+				              <label for="keyword" class="blind">도로명주소, 건물명 또는 지번입력</label>
+				               <input type="text" style="ime-mode:active; width:230px;" placeholder="도로명주소, 건물명 또는 지번입력" id="keyword" title="검색어를 입력하세요" name="keyword" tabindex="1" >
+				            </span>
+
+				            <button type="button" class="search_btn" onclick="javascript:searchAddress();"><img src="https://static.applyhome.co.kr/images/kabhom/board/ic_search.png" alt="주소검색">검색</button>
+				            </div>
+				        </div>
+				        </fieldset>
+
+				        <p><small>검색어 예 : 도로명(반포대로 58), 건물명(독립기념관), 지번(삼성동 25)</small></p>
+				    </div>
+				    <!--  검색 영역 -->
+
+				    <!-- 검색결과 영역 -->
+				    <div class="search-result mt_10" style="display:none">
+				        <table id="searchResult" class="tbl_st tbl_addr mTbl2 type37">
+				            <caption class="blind">도로명 주소검색 결과</caption>
+				            <colgroup>
+				                <col style="width:12%;">
+				                <col style="width:auto;">
+				                <col style="width:14%;">
+				            </colgroup>
+				            <thead>
+				                <tr>
+				                    <th>번호</th>
+				                    <th>도로명주소</th>
+				                    <th>우편번호</th>
+				                </tr>
+				            </thead>
+				            <tbody>
+				                <tr>
+				                    <td>999</td>
+				                    <td class="txt_l">
+				                        <div>
+				                            <a href="#a">
+				                                <div><strong>지봉로77번길 </strong></div>
+				                                <small>[지번]<span>역곡동</span></small>
+				                            </a>
+				                        </div>
+				                    </td>
+				                    <td>12345</td>
+				                </tr>
+				                <tr>
+				                    <td>2</td>
+				                    <td class="txt_l">
+				                        <div>
+				                            <a href="#a">
+				                            <div><strong>지봉로77번길</strong></div>
+				                            <small>[지번]<span>역곡동</span></small>
+				                            </a>
+				                        </div>
+				                    </td>
+				                    <td>12345</td>
+				                </tr>
+				            </tbody>
+				        </table>
+				    </div>
+				    <!-- 검색결과 영역 -->
+
+				    <!-- Page Navigation 영역 -->
+				    <div class="paging_wrap" style="display:none">
+				        <div class="pageview">
+				            <a href="#a" class="arrow"><span class="blind">처음으로</span></a>
+				            <a href="#a" class="arrow arw_prev"><span class="blind">이전페이지</span></a>
+				            <div class="page_box">
+				                <a href="#a" class="active">1</a>
+				                <a href="#a">2</a>
+				                <a href="#a">3</a>
+				                <a href="#a">4</a>
+				                <a href="#a">5</a>
+				                <a href="#a">6</a>
+				                <a href="#a">7</a>
+				                <a href="#a">8</a>
+				                <a href="#a">9</a>
+				                <a href="#a">10</a>
+				            </div>
+				            <a href="#a" class="arrow"><span class="blind">다음페이지</span></a>
+				            <a href="#a" class="arrow arw_next"><span class="blind">맨끝으로</span></a>
+				        </div>
+				    </div>
+				    <!-- Page Navigation 영역 -->
+
+				    <!-- 상세주소 영역 -->
+				    <div class="detail mt_30" style="display:none">
+				        <p><strong>상세주소 입력</strong></p>
+				        <table class="tbl_st tbl_row mt_10">
+				            <caption class="blind">주소입력</caption>
+				            <colgroup>
+				                <col style="width:27%">
+				                <col style="width:auto">
+				            </colgroup>
+				            <tbody>
+				                <tr>
+				                    <th>도로명 주소</th>
+				                    <td class="txt_l">
+				                    <p id="addrPart1"><strong>경기도 부천시 지봉로77</strong></p>
+				                    </td>
+				                </tr>
+				                <tr>
+				                    <th>상세주소입력</th>
+				                    <td class="txt_l">
+				                        <label for="addr01"></label>
+				                        <input type="text" id="addrDetail" name="addrDetail" title="상세주소 입력" maxlength="100">
+				                        <p id="addrPart2"><small>(지봉로)</small></p>
+				                    </td>
+				                </tr>
+				            </tbody>
+				        </table>
+				    </div>
+				    <!-- 상세주소 영역 -->
+
+				    <!-- Button 영역 -->
+				    <div id="divBtnAdres" class="btn_box" style="display:none">
+				        <button type="button" class="btn_submit" style="height: 40px" onclick="javascript:setParent();">주소입력</button>
+				    </div>
+				    <!-- Button 영역 -->
+				</form>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+	document.domain = "applyhome.co.kr";
+
+    $(function(){
+        $("#keyword").focus();
+        $("#keyword").on("keydown", function(event){
+            if (event.which == 13) {
+                event.keyCode = 0;
+                searchAddress();
+            }
+        });
+    });
+
+
+    function clearJuso() {
+        $(".search-result").css('display','none');
+        $(".paging_wrap").css('display','none');
+        $(".detail").css('display','none');
+        $("#divBtnAdres").css('display','none');
+
+        $("#keyword").val("");
+        $("#currentPage").val("1");
+        $("#roadAddr").val("");
+        $("#roadAddrPart1").val("");
+        $("#roadAddrPart2").val("");
+        $("#addrDetail").val("");
+        $("#zipNo").val("");
+
+        $("#addrPart1").html("");
+        $("#addrPart2").html("");
+    };
+
+    function validateJuso(value){
+        value =value.replace(/(^\s*)|(\s*$)/g, ""); //앞뒤 공백 제거
+        return value.split(/[%]/).join("");  //특수문자제거
+    };
+
+    //검색 정제 (번지 빼기, 띄어쓰기)
+    function regExpCheckJuso(strKeyword)
+    {
+        var tempKeyword = strKeyword;
+        var charKeyword;
+        var tempLength;
+
+        //주소일 경우 글자뒤에 번지 x, 주소와 숫자 사이에 한칸 띄우기
+        var reqExp1 =/([0-9]|번지)$/;
+        var reqExp2 =/번지$/;
+        var checkChar =/^([0-9]|-|\.|\·)$/;
+        var checkEng =/^[A-Za-z]+$/;
+
+        if(reqExp1.test(strKeyword))
+        {
+            // 글자 뒤의 번지 삭제
+            tempKeyword = strKeyword.split(reqExp2).join("");
+
+            // 주소와 숫자 사이 한칸 띄우기
+            tempLength = tempKeyword.length;
+
+            for(var i=tempLength-1;i>=0;i--)
+            {
+                charKeyword = tempKeyword.charAt(i);
+
+                if(!checkChar.test(charKeyword))
+                {
+                    if(charKeyword != " " && !checkEng.test(charKeyword))
+                    {
+                        tempKeyword = insertString(tempKeyword,i+1,' ');
+                    }
+                    break;
+                }
+            }
+        }
+
+        var regExp3 = /[0-9]*[ ]*(대로|로|길)[ ]+[0-9]+[ ]*([가-힝]|[ ])*[ ]*(로|길)/;
+        var regExp4 = /[ ]/;
+
+        var k = tempKeyword.match(regExp3) ;
+
+        if (k != null) {
+            var tmp = k[0].split(regExp4).join("");
+
+            tempKeyword=tempKeyword.replace(regExp3, tmp);
+        }
+
+        return tempKeyword;
+    };
+
+    function checkSearchedWord(obj){
+        let length = obj.value.trim().length;
+        if (length < 1) {
+            alert("검색주소를 입력하세요.") ;
+            return false ;
+        } else {
+            //특수문자 제거
+            var expText = /[%=><]/ ;
+            if(expText.test(obj.value) == true){
+                alert("특수문자를 입력 할수 없습니다.") ;
+                obj.value = obj.value.split(expText).join("");
+                return false;
+            }
+
+            //특정문자열(sql예약어의 앞뒤공백포함) 제거
+            var sqlArray = new Array(
+                //sql 예약어
+                "OR", "SELECT", "INSERT", "DELETE", "UPDATE", "CREATE", "DROP", "EXEC",
+                         "UNION",  "FETCH", "DECLARE", "TRUNCATE"
+            );
+
+            var regex;
+            for(var i=0; i<sqlArray.length; i++){
+                regex = new RegExp( sqlArray[i] ,"gi") ;
+
+                if (regex.test(obj.value) ) {
+                    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
+                    obj.value =obj.value.replace(regex, "");
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+
+    function searchAddress(){
+        if (!checkSearchedWord(document.searchForm.keyword)) {
+            $("#keyword").focus();
+            return ;
+        }
+
+        $("#keyword").val(validateJuso($("#keyword").val())); //공백 및 특수문자 제거
+        $("#keyword").val(regExpCheckJuso($("#keyword").val()));
+        var searchData = $("#searchForm").serialize()
+
+        $.ajax({
+             url :"https://www.juso.go.kr/addrlink/addrLinkApi.do"
+            ,type:"get"
+            ,data:searchData
+            ,dataType:"json"
+            ,crossDomain:true
+            ,success:function(searchResult){
+
+                let common = searchResult.results.common;
+                let jusoList = searchResult.results.juso;
+
+                if( parseInt(common.totalCount) > 1000 && common.currentPage == "1" ){
+                    alert("검색 결과가 너무 많습니다(1,000건 이상)\n검색어 예를 참조하여 검색하시기 바랍니다.");
+                }
+
+                if(common.errorCode != "0"){
+                    alert(common.errorCode + "=" + common.errorMessage);
+                }else{
+                    if(searchResult != null){
+                        makeList(searchResult);
+                    }
+                }
+            }
+            ,error: function(xhr,status, error){
+                alert("검색에 실패하였습니다 \n 다시 검색하시기 바랍니다.");
+            }
+        });
+
+    };
+
+    // 도로명주소검색 결과리스트 및 페이지 네이게이션 처리
+    function makeList(searchResult){
+        $(".search-result").css('display','none');
+        $(".paging_wrap").css('display','none');
+        $(".detail").css('display','none');
+        $("#divBtnAdres").css('display','none');
+
+        $("#searchResult tbody").html("");
+        $(".pageview").html("");
+
+        let common = searchResult.results.common;
+        let jusoList = searchResult.results.juso;
+
+        let totalCnt = common.totalCount;
+        let currentPage = common.currentPage;
+        let countPerPage = common.countPerPage;
+        let listNum = (currentPage*countPerPage)-(countPerPage - 1);
+        let num = 0;
+
+        if (common.totalCount == 0) {
+            let tr = $("<tr/>");
+            let td = $("<td/>", {colspan:"3",text:"검색된 내용이 없습니다."});
+
+            tr.append(td);
+            $("#searchResult tbody").append(tr);
+        } else {
+
+            // 검색결과 생성
+            $.each(jusoList, function(idx, juso) {
+                num++;
+
+                let tr = $("<tr/>");
+                let td1 = $("<td/>", {text:listNum++});
+
+                let td2 = $("<td/>", {"class":"txt_l"});
+                let td2_div = $("<div/>");
+                let td2_a = $("<a/>", {href:"#", onclick:"javascript:setMaping('"+num+"');"});
+                let td2_a_div = $("<div/>", {id:"roadAddrDiv_" + num});
+                let td2_a_div_strong = $("<strong/>",{text:juso.roadAddr});
+                let td2_a_div_small = $("<small/>",{text:"[지번] "});
+                let td2_a_div_span = $("<span/>", {text:juso.jibunAddr});
+                let td2_hidden1 = $("<div/>", {id:"roadAddrPart1_" + num, "style":"display:none", text:juso.roadAddrPart1});
+                let td2_hidden2 = $("<div/>", {id:"roadAddrPart2_" + num, "style":"display:none", text:juso.roadAddrPart2});
+
+                let td3 = $("<td/>");
+                let td3_div = $("<div/>", {id:"zipNoDiv_" + num, text:juso.zipNo});
+
+                td2_a_div.append(td2_a_div_strong);
+                td2_a_div_small.append(td2_a_div_span);
+                td2_a.append(td2_a_div, td2_a_div_small)
+                td2_div.append(td2_a, td2_hidden1, td2_hidden2);
+                td2.append(td2_div);
+
+                td3.append(td3_div);
+
+                tr.append(td1, td2, td3);
+
+                $("#searchResult tbody").append(tr);
+            });
+
+            // Page Navigation 생성
+             if(totalCnt > 1) {
+                 let PAGEBLOCK= 10;
+                 let totalPages = Math.floor((totalCnt-1)/countPerPage) + 1;
+
+                 let firstPage = Math.floor((currentPage-1)/PAGEBLOCK) * PAGEBLOCK + 1;
+                 if( firstPage <= 0 ) firstPage = 1;
+
+                 let lastPage = firstPage-1 + PAGEBLOCK;
+                 if( lastPage > totalPages ) lastPage = totalPages;
+
+                 let nextPage = lastPage+1 ;
+                 let prePage = firstPage-5 ;
+
+                 let paggingStr = "";
+
+                 if(totalPages > 1){
+                     if( firstPage > PAGEBLOCK ){
+                         paggingStr += "<a class='arrow' href='javascript: $(\"#currentPage\").val(1); searchAddress();'><span class='blind'>처음으로</span></a>";
+                         paggingStr +=  "<a class='arrow arw_prev' href='javascript: $(\"#currentPage\").val("+prePage+"); searchAddress();'><span class='blind'>이전 페이지로</span></a>" ;
+                     }
+
+                     paggingStr += "<div class='page_box'>";
+                     for( let i=firstPage; i<=lastPage; i++ ){
+                         if( currentPage == i )
+                             paggingStr += "<a href='#a' class='active'>" + i + "</a>";
+                         else
+                             paggingStr += "<a href='javascript:$(\"#currentPage\").val("+i+");  searchAddress();'>" + i + "</a>  ";
+                     }
+
+                     paggingStr += "</div>";
+
+                     if( lastPage < totalPages ){
+                         paggingStr +=  "<a class='arrow' href='javascript: $(\"#currentPage\").val("+nextPage+");  searchAddress();'><span class='blind'>다음으로</span></a>";
+                     }
+                     paggingStr += "<a class='arrow arw_next' href='javascript: $(\"#currentPage\").val(" + totalPages + "); searchAddress();'><span class='blind'>맨끝으로</span></a>";
+                 }
+
+                 $(".pageview").html(paggingStr);
+             }
+
+
+        }
+
+        $(".search-result").css('display','block');
+        $(".paging_wrap").css('display','block');
+
+        $("#roadAddr").val("");
+        $("#roadAddrPart1").val("");
+        $("#roadAddrPart2").val("");
+        $("#zipNo").val("");
+
+        $("#addrPart1").html("");
+        $("#addrPart2").html("");
+    };
+
+
+    function setMaping(idx){
+        $(".search-result").css('display','none');
+        $(".paging_wrap").css('display','none');
+
+        $(".detail").css('display','block');
+        $("#divBtnAdres").css('display','block');
+
+        let roadAddr = $("#roadAddrDiv_"+idx).text()
+        let roadAddrPart1 = $("#roadAddrPart1_"+idx).text();
+        let roadAddrPart2 = $("#roadAddrPart2_"+idx).text();
+        let zipNo = $("#zipNoDiv_"+idx).text();
+
+        $("#roadAddr").val(roadAddr);
+        $("#roadAddrPart1").val(roadAddrPart1);
+        $("#roadAddrPart2").val(roadAddrPart2);
+        $("#zipNo").val(zipNo);
+
+        $("#addrPart1").html("<strong>" + roadAddrPart1 + "</strong>");
+        $("#addrPart2").html("<small>" + roadAddrPart2 + "</small>");
+        $("#addrDetail").focus();
+    };
+
+
+    function setParent(){
+        var jusoCallBackOptions = new Object();
+
+        jusoCallBackOptions.roadFullAddr = $.trim($("#roadAddr").val());
+        jusoCallBackOptions.roadAddrPart1 = $.trim($("#roadAddrPart1").val());
+        jusoCallBackOptions.roadAddrPart2 = $.trim($("#roadAddrPart2").val());
+        jusoCallBackOptions.addrDetail = $.trim($("#addrDetail").val());
+        jusoCallBackOptions.zipNo = $.trim($("#zipNo").val());
+
+        jusoCallBack(jusoCallBackOptions);
+
+        $("#pop_info2").hide();
+        clearJuso();
+    };
+</script>
+
+
+<script>
+    var checkSubmit = true;
+
+
+    $(function() {
+        gfn_hideCmmnProgressBar();
+
+
+        $("#chk_adr").click(function(){
+            if($(this).is(":checked")) {
+                $("#contactAdresZip").removeAttr("disabled");
+                $("#contactAdres").removeAttr("disabled");
+            } else {
+                $("#contactAdresZip").attr("disabled", "disabled");
+                $("#contactAdres").attr("disabled", "disabled");
+            }
+        });
+
+
+        $(".btnPopWord").click(function(){
+            var pId = $(this).data("popword");
+            var pTit = $(this).children('span').text();
+            gfn_popupWordDc(pId, pTit);
+        });
+
+        /* 상세설명 */
+        /* $(".explan").hover(function(){
+            $(this).parents(".sub_tit").find(".add_line_box").css("display","block")
+        },function(){
+            $(this).parents(".sub_tit").find(".add_line_box").css("display","")
+        }); */
+        $(".explan").on("click", function() {
+            $(this).parents(".sub_tit").siblings().find(".add_line_box").hide();
+            $(this).parents(".apply_choose_wrap").nextAll().find(".add_line_box").hide();
+            $(this).find(".add_line_box").toggle();
+        });
+
+        $(".detail_close").click(function() {
+            $(this).parent(".add_line_box").hide();
+        });
+
+        // 질문에 대한 상세설명 팁 - 2019.11.25 추가
+        $(".detail_btn").click(function() {
+            $(this).parents("tr").siblings().find(".detail_layer").hide();
+            $(this).parents("table").siblings().find(".detail_layer").hide();
+            $(this).next(".detail_layer").toggle().focus();
+        });
+
+        $(".detail_close").click(function() {
+            $(this).parents(".detail_layer").hide();
+        });
+
+
+        $("input[name='lwstflPrasgnReqstAt']").on("click", function(){
+            if($("input[name='lwstflPrasgnReqstAt']:checked").length > 1) {
+                $("input[name='lwstflPrasgnReqstAt'][value!='"+$(this).val()+"']").prop("checked",false);
+            }
+        });
+
+
+        $("#btnSubmitPre").click(function() {
+
+            //$net.href("/ap/app/reqst/step3.do");
+            $net.submit("reqstForm", "/ap/app/reqst/step3.do");
+        });
+
+        $("#btnSubmitNext").click(function() {
+            if(checkSubmit == false) {
+                 return ;
+             }
+
+
+            if(!fn_checkValidation()) {
+                return false;
+            }
+
+            var $checkedLwstflPrasgnReqstAt = $("input[name='lwstflPrasgnReqstAt']:checked");
+            if($checkedLwstflPrasgnReqstAt.length > 0) {
+                if($checkedLwstflPrasgnReqstAt.val() == 'T'){
+                    $("#lwstflPrasgnReqstAtNm").val('다자녀가구로 최하층 신청');
+                } else if($checkedLwstflPrasgnReqstAt.val() == 'Y'){
+                    $("#lwstflPrasgnReqstAtNm").val('노인, 장애인으로 최하층 신청');
+                }
+            } else {
+                $("#lwstflPrasgnReqstAtNm").val('해당사항 없음');
+            }
+
+            fn_save();
+        });
+
+
+        $('#btnAdres').on('click', function() {
+
+            $("#pop_info2").show().focus();
+            $(".current").removeClass('current');
+            $(this).addClass("current");
+        });
+
+
+        onlyNumber('#tel01');
+        onlyNumber('#tel02');
+        onlyNumber('#tel03');
+    });
+
+    /**
+     * 설명       : 입력값 validation 체크
+     * 사용방식 : fn_checkValidation()
+     * 주의       :
+     * 리턴       : boolean
+     */
+    function fn_checkValidation() {
+        // 주소변환
+        replaceTabToSpace($("#contactAdres"));
+
+        // 상세주소변환
+        replaceTabToSpace($("#contactDetailAdres"));
+
+        //주소
+        if($num.onlyNumberObj($("#contactAdresZip")) == false) {
+
+            alert('우편번호은(는) 숫자만 입력 가능합니다.');
+            $("#contactAdresZip").focus();
+            return false;
+        }
+        $("#contactAdresZip").val($.trim($("#contactAdresZip").val()));
+        if($("#contactAdresZip").val().length != 5) {
+
+            alert('우편번호은(는) 5자로 입력 해 주세요.');
+            $("#contactAdresZip").focus();
+            return false;
+        }
+        $("#contactAdres").val($.trim($("#contactAdres").val()));
+        if($("#contactAdres").val().length < 5) {
+
+            alert('주소을(를) 확인하여 주시기 바랍니다.');
+            $("#contactAdres").focus();
+            return false;
+        }
+        $("#contactDetailAdres").val($.trim($("#contactDetailAdres").val()));
+        if($("#contactDetailAdres").val().length < 1) {
+
+            alert('상세주소을(를) 확인하여 주시기 바랍니다.');
+            $("#contactDetailAdres").focus();
+            return false;
+        }
+        //전화번호
+        if($num.onlyNumberObj($("#tel01")) === false) {
+
+            alert('전화번호은(는) 숫자만 입력 가능합니다.');
+            $("#tel01").focus();
+            return false;
+        }
+        if($num.onlyNumberObj($("#tel02")) === false) {
+
+            alert('전화번호은(는) 숫자만 입력 가능합니다.');
+            $("#tel02").focus();
+            return false;
+        }
+        if($num.onlyNumberObj($("#tel03")) === false) {
+
+            alert('전화번호은(는) 숫자만 입력 가능합니다.');
+            $("#tel03").focus();
+            return false;
+        }
+
+        if($("#tel01").val().length < 2) {
+
+            alert('전화번호은(는) 2자 이상 입력해야 합니다.');
+            $("#tel01").focus();
+            return false;
+        }
+        if($("#tel02").val().length < 3) {
+
+            alert('전화번호은(는) 3자 이상 입력해야 합니다.');
+            $("#tel02").focus();
+            return false;
+        }
+        if($("#tel03").val().length < 4) {
+
+            alert('전화번호은(는) 4자 이상 입력해야 합니다.');
+            $("#tel03").focus();
+            return false;
+        }
+
+        if($("#tel01").val().replace(/0/ig, "").length == 0) {
+
+            alert('전화번호 0은(는) 유효하지 않은 값입니다.');
+            $("#tel01").focus().val("");
+            return false;
+        }
+        if($("#tel02").val().replace(/0/ig, "").length == 0) {
+
+            alert('전화번호 0은(는) 유효하지 않은 값입니다.');
+            $("#tel02").focus().val("");
+            return false;
+        }
+
+        var tel01Val = $("#tel01").val();
+        var strHp = "|010|011|016|017|018|019|";
+        if(strHp.indexOf("|"+tel01Val+"|") < 0) {
+            alert("연락전화번호는 \n\n휴대폰 번호를 입력하셔야 합니다.");
+            $("#tel01").focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    var saveStep = 0;
+
+    /**
+     * 설명       : 서명데이터 생성 후 호출하는 CallBack 함수
+     * 사용방식 : fn_save(code, data)
+     * 주의       :
+     * 리턴       :
+     */
+    function fn_save() {
+         if(saveStep > 0) {
+            return;
+        }
+        saveStep = 1;
+
+
+        var vUrl = "/ap/app/reqst/insertContactInfo.do";
+        var oOptions = new Object();
+
+
+        oOptions.dataType = "json";
+
+
+        oOptions.CallBack = "fn_crtfctLoginCallBack";
+
+
+        var vHpNo = $("#tel01").val() + "-" + $("#tel02").val() + "-" + $("#tel03").val() ;
+        oOptions.requestData =
+        {
+            "contactAdresZip": $("#contactAdresZip").val()
+            ,"contactAdres" : $("#contactAdres").val()
+            ,"contactDetailAdres" : $("#contactDetailAdres").val()
+            ,"cttpcHpNo" : vHpNo
+            ,"cttpcHpNo1" : $("#tel01").val()
+            ,"cttpcHpNo2" : $("#tel02").val()
+            ,"cttpcHpNo3" : $("#tel03").val()
+            ,"smsAgreAt" : $("input[name=smsNtice]:checked").val()
+            ,"lwstflPrasgnReqstAt" : $("input[name=lwstflPrasgnReqstAt]:checked").val()
+            ,"processTm" : $("#processTm").val()
+        }
+
+
+        $net.ajax(vUrl, oOptions);
+    }
+
+    /**
+     * 설명       : 인증서 로그인 시도 후 호출하는 CallBack 함수
+     * 사용방식 : fn_crtfctLoginCallBack(vResBody, e)
+     * 주의       :
+     * 리턴       :
+     */
+    function fn_crtfctLoginCallBack(vResBody, e) {
+         if(saveStep != 1) {
+             return ;
+         }
+         saveStep = 2;
+         if(vResBody.resultCode == "200") {
+
+            saveStep = 0;
+            //$net.href("/ap/app/reqst/step5.do");
+            $("#processTm").val(vResBody.processTm);
+            $net.submit("reqstForm", "/ap/app/reqst/step5.do");
+        } else {
+            var popOpt = new Object();
+            popOpt.msg = '연락처 등 입력 오류 ';
+            popOpt.msgDetail = '';
+            popOpt.msgDetail += vResBody.resultMsg;
+            gfn_popupHtmlMsgErr(popOpt);
+            saveStep = 0;
+
+            return false;
+        }
+    }
+
+    /**
+     * 설명       : 주소팝업 Callback 함수. 선택한 주소정보 set
+     * 사용방식 : jusoCallBack()
+     * 주의       :
+     * 리턴       : boolean
+     */
+    function jusoCallBack(jusoObj){
+        if($.isEmptyObject(jusoObj) == false) {
+            $("#contactAdresZip").val(jusoObj.zipNo);
+            $("#contactAdres").val(jusoObj.roadAddrPart1);
+            $("#contactDetailAdres").val(jusoObj.addrDetail);
+        }
+    }
+
+
+    function fn_popClose(popid) {
+
+        $("#" + popid).hide();
+        $(".current").focus();
+    }
+</script>
+
+<script src="/js/kabhom/com/ai.com.js"></script>
+
+
+
+
+	</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APR00R05";
+</script>
+<script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/util/hom.all.js"></script>
+</body>
+</html>

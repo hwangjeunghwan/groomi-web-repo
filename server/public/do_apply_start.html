@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<script src="js/kabhom/com/com.js"></script>
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<script>
+	document.domain = "applyhome.co.kr";
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		if(gfn_isMobile()) {
+			$('#divTab').css("display","none");
+		}
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+</head>
+<body>
+  <div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다.</p>
+					<div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="mo_none" data-mid="634"><i class="xi-angle-right-thin"></i> 청약신청</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+<script>
+	$(function(){
+
+		$(".tab_box li a").on("click", function() {
+			$("ul.tab_box li").removeClass("active");
+			$(this).parents("li").addClass("active");
+			$(".tab_content").hide();
+
+			$(".tab_box li b").remove();
+			$(this).append($('<b/>', {'class':'blind', text:'현재 선택된 메뉴'}));
+
+			var activeTab = $(this).parents("li").data("show");
+
+			$("#"+activeTab).show();
+		});
+
+
+		var initTy = "10";
+		var initSe = "01";
+		var initRhTy = "";
+
+		if($str.isEmpty(initTy, true) === false && $str.isEmpty(initSe, true) === false) {
+			var tabId = $(".btn_submit[data-se="+initSe+"][data-ty="+initTy+"]").parents(".tab_content").attr("id");
+
+			if ("06" == initSe) {
+				//취소후 재공급일경우
+				tabId = "tab_04";
+			}
+
+			$(".tab_box").find("a[href='#"+tabId+"']").click();
+		} else {
+
+			$(".tab_box li").eq(0).addClass("active");
+			$(".tab_box li").eq(0).children('a').append($('<b/>', {'class':'blind', text:'현재 선택된 메뉴'}));
+		}
+
+
+
+
+		$("#btnApply01, #btnApply02").on("click", function()
+		{
+			$("#suplyTycd").val($(this).data("ty"));
+			$("#houseSecd").val($(this).data("se"));
+
+
+			fn_save();
+		});
+
+
+		$("#btnApply03").on("click", function()
+		{
+			$("#suplyTycd").val($(this).data("ty"));
+			$("#houseSecd").val($(this).data("se"));
+
+
+			if(checkSubmit) {
+				if($("#houseSecd").val() != "" && $("#suplyTycd").val() != "") {
+					checkSubmit = false;
+
+
+					var param = {"houseSecd": $("#houseSecd").val()
+							,"suplyTycd" : $("#suplyTycd").val()
+							};
+					var vUrl = "/ap/apa/reqst/insertSubscrtReqstTy.do";
+
+					var oOptions = new Object();
+					oOptions.CallBack = "fn_nextCallBack";
+					oOptions.requestData = param;
+					oOptions.dataType = "json";
+
+					$net.ajax(vUrl, oOptions);
+				}
+			}
+		});
+
+
+        $("#btnApply04").on("click", function(){
+            $("#suplyTycd").val($(this).data("ty"));
+            $("#houseSecd").val($(this).data("se"));
+
+
+            if(checkSubmit) {
+                if($("#houseSecd").val() != "" && $("#suplyTycd").val() != "") {
+                    checkSubmit = false;
+
+
+                    var param = {"houseSecd": $("#houseSecd").val()
+                            ,"suplyTycd" : $("#suplyTycd").val()
+                            };
+                    var vUrl = "/ap/apj/reqst/insertSubscrtReqstTy.do";
+
+                    var oOptions = new Object();
+                    oOptions.CallBack = "fn_nextCallBack";
+                    oOptions.requestData = param;
+                    oOptions.dataType = "json";
+
+                    $net.ajax(vUrl, oOptions);
+                }
+            }
+        });
+
+
+
+	});
+
+
+
+	var checkSubmit = true;
+	/**
+	 * 설명		: 선택값 저장
+	 * 사용방식	: fn_save()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_save(){
+		if(checkSubmit) {
+			if($("#houseSecd").val() != "" && $("#suplyTycd").val() != "") {
+				checkSubmit = false;
+
+
+				var param = {"houseSecd": $("#houseSecd").val()
+						,"suplyTycd" : $("#suplyTycd").val()
+						};
+				var vUrl = "/ap/aph/reqst/insertSubscrtReqstTy.do";
+
+				var oOptions = new Object();
+				oOptions.CallBack = "fn_nextCallBack";
+				oOptions.requestData = param;
+				oOptions.dataType = "json";
+
+				$net.ajax(vUrl, oOptions);
+			}
+		}
+	}
+
+	/**
+	 * 설명		: 입력값 저장 성공 시 다음 step 이동
+	 * 사용방식	: fn_nextCallBack()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_nextCallBack(vResBody) {
+		if(vResBody.codeRtn == "200") {
+			$net.href(""+vResBody.nextUrl+"");
+		} else {
+			gfn_hideCmmnProgressBar();
+			alert(vResBody.msgRtn);
+			checkSubmit = true;
+		}
+	}
+
+</script>
+		<div class="sub_content_box add_box" id="subContent">
+			<div id="" class="tab_content" style="display:block;">
+				<h5 class="sub_sub_tit" style="text-align: left">이용시간</h5>
+				<table class="tbl_st tbl_tb tbl_bg_n tbl_center add_tbl">
+					<caption class="blind">이용시간이 나와있는 테이블입니다.</caption>
+					<colgroup>
+						<col style="width:auto">
+						<col style="width:auto">
+						<col style="width:auto">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">서비스 구분</th>
+							<th scope="col">이용시간</th>
+							<th scope="col">이용일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>청약신청·취소</td>
+							<td>-</td>
+							<td>해당 청약 신청일</td>
+						</tr>
+						<tr>
+							<td>청약신청내역조회</td>
+							<td>-</td>
+							<td>영업일, 청약후 3개월간</td>
+						</tr>
+						<tr>
+							<td>청약통장 가입내역조회</td>
+							<td>-</td>
+							<td>영업일</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div class="btn_box">
+					<button type="button" id="btnApply01" class="btn_submit" data-se="01" data-ty="10" title="아파트 1순위 2순위 청약신청하기" onclick = "location.href = 'do_apply_home_select.html' ">청약신청하기</button>
+												<button type="button" id="btnApply02" data-se="01" data-ty="20" class="btn_submit" title="아파트 특별공급 청약신청하기" onclick = "location.href = 'AptCancelList.html' ">신청내역확인</button>
+										</div>
+
+            <div class="line_box noti_line">
+                <div class="line_content">
+                    <ul class="bul_list">
+                        <li>청약자가 청약신청내역을 착오 입력하여 주택청약자격 및 순위가 다르게 당첨된 사실이 판명된 경우에는 <span class="color_org">당첨 및 주택공급계약 취소, 청약신청 제한 등 제재</span>가 따르니 정확하게 청약 신청하시기 바랍니다.</li>
+
+                    </ul>
+                </div>
+            </div>
+    <style>
+        .tab_wrap .tab_content {padding: 50px 0;position: absolute;width: 95%;max-width: 1100px;left: 50%;margin-left: -47.5%;}
+        .tab_wrap .tab_box li {position: inherit;}
+        .tab_wrap .tab_box {margin-bottom: 400px}
+        @media all and (max-width: 1140px) {.tab_wrap .tab_content {margin-left: -47.5%;}}
+    </style>
+		<form name="reqstForm" id="reqstForm">
+			<input type="hidden" name="houseSecd" id="houseSecd" value="01"/>
+			<input type="hidden" name="suplyTycd" id="suplyTycd" value="10"/>
+			<input type="hidden" name="nextUrl" id="nextUrl" value=""/>
+		</form>
+
+
+
+	</div>
+</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "API00M01";
+</script>
+<script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/com/hom.all.js"></script>
+
+</body>
+</html>

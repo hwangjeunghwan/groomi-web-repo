@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="/js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<script src="/js/kabhom/com/com.js"></script>
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<!-- react 및 axios -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js" ></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+
+	<script>
+	document.domain = "applyhome.co.kr";
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		if(gfn_isMobile()) {
+			$('#divTab').css("display","none");
+		}
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+</head>
+<body>
+  <div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						모집공고단지 청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다.</p>
+
+					<div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="" data-mid="100126" data-umid="100122">
+								<i class="xi-angle-right-thin"></i> 청약신청
+							</li>
+
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+
+<style>
+    /*청약가상체험 일반공급 민영 */
+    /*청약통장 가입일 날짜입력 제이쿼리 팝업 위치 조정위해 필요한 css*/
+    html,body{height: auto}
+</style>
+<div class="sub_content_box add_box" id="subContent">
+
+	<div class="apply_step_box">
+		<h5>
+
+
+
+
+
+
+
+
+
+
+
+									APT 1순위 청약
+
+
+
+
+
+		</h5>
+		<div class="apply_step_list_box">
+			<ul id="ulStep" class="apply_step_list virtual">
+				<li id="liStep1" class="step_prev">
+					<p>
+						<b><span>1</span></b>
+					</p> <em>주택선택 및 유의사항 확인</em>
+				</li>
+				<li id="liStep2" class="step_prev">
+					<p>
+						<b><span>2</span></b>
+					</p>
+					<em>
+
+
+
+								주택형 선택
+
+
+					</em>
+				</li>
+				<li id="liStep3" class="step_active">
+					<p>
+						<b><span>3</span></b>
+					</p>
+					<em>
+
+
+
+								청약자격 확인 및 입력
+
+
+					</em>
+				</li>
+				<li id="liStep4">
+					<p>
+						<b><span>4</span></b>
+					</p>
+					<em>연락처 등 입력 및 청약신청 내역확인</em>
+				</li>
+				<li id="liStep5">
+					<p>
+						<b><span>5</span></b>
+					</p>
+
+
+							<em>청약완료</em>
+
+
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<form name="reqstForm" id="reqstForm" method="POST">
+		<!--여기부터-->
+		<div class="chos_wrap">
+			<input type="hidden" name="processTm" id="processTm" value="18143833247668741"/>
+			<input type="hidden" name="houseManageNo" id="houseManageNo" value="2021000907" />
+			<input type="hidden" name="pblancNo" id="pblancNo" value="2021000907" />
+
+
+					<div style="display: none">
+
+
+
+			<div class="sub_tit">
+				 청약자격확인
+				<div class="explan">
+						<a href="#a"><img src="https://static.applyhome.co.kr/images/kabhom/sub/sub_detail_txt.png" alt="상세설명"></a>
+
+					<div class="line_box add_line_box">
+							<div class="line_content">
+								<ul class="bul_list" style="font-size: 1rem">
+									<li>귀하가 선택하신 주택은
+										<button type="button" class="btn_voca btnPopWord"  data-popword="hotareaLay">
+											<span>투기과열지구</span>
+										</button> 또는
+										<button type="button" class="btn_voca btnPopWord" data-popword="adjustareaLay">
+											<span>청약과열지구</span>
+										</button> 에서 공급되는 주택입니다.
+									</li>
+									<li>본인 및 무주택 세대구성원 모두 아래 기준을 충족하여야 청약신청이 가능합니다.</li>
+									<li>아래의 각 문항별 적용기준을 반드시 확인하신 후 선택하여 주시기 바랍니다.</li>
+								</ul>
+								 <button type="button" class="detail_close">
+                                    <i class="xi xi-close-thin"></i><span class="blind">팝업 닫기</span>
+                                </button>
+							</div>
+						</div>
+				</div>
+			</div>
+			<table class="tbl_st tbl_row scrp_result mTbl type02">
+				<caption class="blind">행정정보조회결과가 나와있는 테이블입니다.</caption>
+				<thead>
+					<tr>
+						<th class="thTIt">검증항목</th>
+						<th style="width: 14%">고객선택</th>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			<input type="hidden" name="specltRdnEarthAt" id="specltRdnEarthAt"
+				value="Y" />
+		</div>
+
+		<div class="chos_wrap">
+
+
+
+		<div id="move"></div>
+
+		<input type="hidden" name="housePosesnAtTy" id="housePosesnAtTy" value="2A" />
+        <input type="hidden" name="housePosesnSecd" id="housePosesnSecd" value="" />
+		<input type="hidden" name="apsPrzwinAt" id="apsPrzwinAt" value="N" />
+		<input type="hidden" name="apsSubscrptAt" id="apsSubscrptAt" value="Y" />
+        <input type="hidden" name="apsSubscrptAtOri" id="apsSubscrptAtOri" value="Y" />
+        <input type="hidden" name="bhmlsPriorAt" id="bhmlsPriorAt" value="N" />
+        <input type="hidden" name="agreAt" id="agreAt" value="N" />
+	    <div id="addpntIemInput" style="display: none"></div>
+	<!--여기까지-->
+
+	<script type="text/babel">
+		class TypeSelect extends React.Component{
+			constructor(props){
+				super(props);
+				this.state = {
+					data : [],
+					houseManageNo : parseInt(location.href.split('?')[1]?.split('=')[1]),
+					houseTy : String(location.href.split('?')[2]?.split('=')[1]),
+					lngtrSrvicSolderAt : null,
+					resideSecd : null,
+					housePosesn : null,
+					przwinAt : null
+				}
+				this.moveLocationFront = this.moveLocationFront.bind(this);
+				this.moveLocationBack = this.moveLocationBack.bind(this);
+				this.setlngtrSrvicSolderAt = this.setlngtrSrvicSolderAt.bind(this);
+				this.setResideSecd = this.setResideSecd.bind(this);
+				this.setHousePosesn = this.setHousePosesn.bind(this);
+				this.setPrzwinAt = this.setPrzwinAt.bind(this);
+			}
+
+			moveLocationFront(e){
+				let data1 = this.state.lngtrSrvicSolderAt ;
+				let data2 = this.state.resideSecd ;
+				let data3 = this.state.housePosesn ;
+				let data4 = this.state.przwinAt;
+				if(data1 != null && data2 != null && data3 != null && data4 != null){
+					location.href = `Do.apply.qualify.inputs.html?houseManageNo=${this.state?.houseManageNo}?houseTy=${this.state?.houseTy}?dataSet=${data1+data2+data3+data4}`;
+				}else{
+					alert("선택지를 모두 선택하여 주십시오.");
+				}
+			}
+
+			moveLocationBack(e){
+				location.href = `do_apply_type_select.html?houseManageNo=${this.state?.houseManageNo}`;
+			}
+
+			setlngtrSrvicSolderAt(e){
+				this.setState({ lngtrSrvicSolderAt : e.target.value })
+				//consol.log(e.target.value)
+			}
+
+			setResideSecd(e){
+				this.setState({ resideSecd : e.target.value })
+				//consol.log(e.target.value)
+			}
+			setHousePosesn(e){
+				this.setState({ housePosesn : e.target.value })
+				//consol.log(e.target.value)
+			}
+			setPrzwinAt(e){
+				this.setState({ przwinAt : e.target.value })
+				//consol.log(parent.document.body)
+			}
+
+			render(){
+				return <>
+
+				<h5 className="sub_tit mt_20">거주지 확인</h5>
+			<table className="tbl_st tbl_row mt_30 scrp_result mTbl type02">
+				<caption className="blind">스크래핑 결과가 나와있는 테이블입니다.</caption>
+				<thead>
+					<tr>
+						<th className="thTIt" style={{width: '50%'}}>검증항목</th>
+						<th style={{width: '26%'}}>고객선택</th>
+					</tr>
+				</thead>
+				<tbody>
+
+						<tr>
+							<td>
+								Q1. <span className="color_blue">모집공고일(<span name="thisyear" className="color_blue"></span>년 <span name="thismonth" className="color_blue"></span>월 <span name="thisdate" className="color_blue"></span>일</span> 현재, <span className="color_blue">10년 이상(임관일 <span name="yearago" className="color_blue"></span>년 <span name="thismonth1" className="color_blue"></span>월 <span name="thisdate1" className="color_blue"></span>일 이전) 장기복무중</span>인 군인에 해당되십니까?
+								<a href="#layer02" className="detail_btn" title='10년 이상 장기복무 중인 군인 선택 설명보기'>
+								<img src="https://static.applyhome.co.kr/images/kabhom/apply_step/detail_chk.png" alt="상세설명"/></a>
+								<div id="layer02" className="detail_layer pop" tabIndex="0">
+									<div className="line_box" style={{margin: 0}}>
+										<div className="line_content">
+											<b className="line_tit">10년 이상 장기복무 중인 군인 선택</b>
+											<ul className="bul_list" style={{fontSize: '1rem'}}>
+												<li>
+													<span className="mt_10">입주자모집공고일 현재, 10년 이상 장기복무중인 군인으로서 “장기복무군인”을 선택한 경우, 다른 주택건설지역(기타지역)에 거주하는 청약자도  <b>‘해당지역’</b>거주자의 자격으로 청약할 수 있습니다.</span>
+												</li>
+												<li>
+												<span>다만, 수도권에서 <em>공급*</em>하거나 <b>전입제한기간이 있는 수도권 외의 지역</b>에서 <em>공급**</em>하는 주택에서는 10년 이상 장기복무군인이라 하더라도 해당 주택건설지역(해당지역)이 아닌 <b>‘기타지역’</b> 거주자의 자격으로 청약됩니다.</span>
+												</li>
+												<li>
+													<b className="mt_10">* 수도권에서 공급하는 주택의 경우, ‘수도권 외 거주자’만 장기복무군인으로 신청 가능</b>
+												</li>
+												<li>
+													<b>** 전입제한기간이 있는 수도권 외 지역에서 공급하는 주택의 경우, 해당지역 거주자는 장기복무군인으로 신청 불가 </b>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<button type="button" className="detail_close">
+										<i className="xi xi-close-thin"></i><span className="blind">팝업
+											닫기</span>
+									</button>
+								</div>
+							</td>
+							<td>
+								<div className="add_box">
+									<p className="radio_st2">
+										<input type="radio" name="lngtrSrvicSolderAt"
+											id="lngtrSrvicSolderAtY" value="Y" data-qcd="06" onClick={this.setlngtrSrvicSolderAt}/> <label
+											htmlFor="lngtrSrvicSolderAtY">장기복무군인</label>
+									</p>
+									<p className="radio_st2">
+										<input type="radio" name="lngtrSrvicSolderAt"
+											id="lngtrSrvicSolderAtN" value="N" data-qcd="06" onClick={this.setlngtrSrvicSolderAt}/> <label
+											htmlFor="lngtrSrvicSolderAtN">해당사항없음</label>
+									</p>
+								</div>
+							</td>
+						</tr>
+
+					<tr>
+						<td>Q2. 거주지는 <span className="color_blue">입주자모집공고일(<span name="thisyear1" className="color_blue"></span>년 <span name="thismonth2" className="color_blue"></span>월 <span name="thisdate2" className="color_blue"></span>일)</span>
+							현재, 주민등록상 주소를 선택하여 주시기 바랍니다.
+							<a href="#layer03" className="detail_btn" title="청약자격 거주구분 설명보기">
+							<img src="https://static.applyhome.co.kr/images/kabhom/apply_step/detail_chk.png" alt="상세설명"/></a>
+							<div id="layer03" className="detail_layer pop" tabIndex="0">
+								<div className="line_box" style={{margin: 0}}>
+									<div className="line_content">
+										<b className="line_tit">청약자격 거주구분</b>
+										<ul className="bul_list line_list">
+											<li>청약자의 주소지와 주택건설지역이 일치하는 경우 : 해당<br/>다만, 전입제한일이 있는
+												경우 전입제한일 이후 거주자는 기타로 구분함
+											</li>
+											<li>주택건설지역에 연접한 도 및 광역시 거주자가 청약하는 경우 : 기타</li>
+
+										</ul>
+										<ul className="bul_list star_list">
+											<li>주택공급은 해당지역 거주자에게 우선적으로 공급되고 미달 시 잔여세대가 인근지역 거주자에게 공급됩니다.<br/>다만, 수도권 내 대규모 택지개발지구 및 행정중심복합도시 예정지역(세종특별자치시)은 별도의 기준을 적용합니다.<br/>세부사항은 사업주체의 입주자모집공고문 또는 청약안내 &gt; APT 청약안내 &gt; 당첨자 선정을 참고하시기 바랍니다.</li>
+										</ul>
+									</div>
+									<button type="button" className="detail_close">
+										<i className="xi xi-close-thin"></i><span className="blind">팝업
+											닫기</span>
+									</button>
+								</div>
+							</div>
+							<div className="line_content">
+								<p>
+									※<span className="color_red">청약을 위한 위장전입은 3년 이하의 징역 또는 3천만원
+										이하의 벌금</span>에 처합니다. (주택법 제 65조 및 101조 제3호)
+								</p>
+								<p>
+									- 국토교통부에서는 <span className="color_red">청약자료를 토대로 주소이전 현황 등을
+										분석, 정기적으로 위장전입 의심자를 수사의뢰함</span>
+								</p>
+							</div>
+						</td>
+						<td className="scrp_chk">
+							<div>
+								<div id="nonSolder" className="add_box">
+
+
+
+										<p className="radio_st2">
+											<input type="radio" className="choiseY" name="resideSecd"
+												id="resideSecd1" data-sn="1" value="Y"
+												data-pdat="N" onClick={this.setResideSecd}/> <label
+												htmlFor="resideSecd1">해당지역 거주</label>
+										</p>
+
+										<p className="radio_st2">
+											<input type="radio" className="choiseY" name="resideSecd"
+												id="resideSecd2" data-sn="2" value="N"
+												data-pdat="N" onClick={this.setResideSecd}/> <label htmlFor="resideSecd2">기타지역 거주</label>
+										</p>
+
+
+								</div>
+								<div id="solder" className="add_box" style={{display: 'none'}}>
+
+
+
+										<p className="radio_st2">
+											<input type="radio" className="choiseY" name="resideSecd"
+												id="resideSecd3" data-sn="3" value="01"
+												data-pdat="N"/> <label
+												htmlFor="resideSecd3">해당지역 거주</label>
+										</p>
+
+
+
+
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="hidden" name="resideAreaSn" id="resideAreaSn" value="" />
+			<input type="hidden" name="resideAreaCode" id="resideAreaCode"
+				value="" /> <input type="hidden" name="solderAt" id="solderAt"
+				value="N" /> <input type="hidden" name="rsResideSecd"
+				id="rsResideSecd"
+				value="01" />
+
+
+				<div className="cert_wrap">
+				</div>
+				<div>
+				<h5 className="sub_tit mt_20"> 선정기준 확인</h5>
+
+		<table className="tbl_st tbl_row mt_30 scrp_result mTbl type02">
+			<caption className="blind">행정정보조회결과가 나와있는 테이블입니다.</caption>
+			<thead>
+				<tr>
+					<th className="thTIt" style={{width : '40%'}}>검증항목</th>
+					<th style={{width : '14%'}}>고객선택</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>
+						<b id="qualf07tit" data-stdrval="N">Q1. 주택소유여부</b>
+						<span><b className="color_blue">모집공고일(<span name="thisyear3" className="color_blue"></span>년 <span name="thismonth4" className="color_blue"></span>월 <span name="thisdate4" className="color_blue"></span>일)</b> 현재, 본인과 세대에 속한 자가 주택을 소유(분양권등 포함) 하였습니까?</span>
+						<a href="#layer04" className="detail_btn" title="주택소유여부에 따른 추첨제 입주자 선정기준 설명보기"><img src="https://static.applyhome.co.kr/images/kabhom/apply_step/detail_chk.png" alt="상세설명"/></a>
+						<div id="layer04" className="detail_layer pop" tabIndex="0">
+							<div className="line_box" style={{margin: 0}}>
+
+								<div className="line_box">
+									<div className="line_content">
+										<b className="line_tit">주택소유여부 판정 기준</b>
+										<p>
+											청약신청자의 <b>만60세 이상의 직계존속이 주택을 소유(분양권등 포함)한 경우는 주택을 소유하지
+												않은 것으로 인정</b>합니다. 단, 공공임대주택의 청약 시에는 주택을 소유한 것으로 봅니다.
+										</p>
+										<p className="mt_5">
+											<b>분양권등을 갖고 있거나 주택 또는 분양권등의 공유지분을 소유</b>하고 있는 경우에는 주택을 소유하는
+											것으로 보되, 주택소유여부 판정기준(주택공급에 관한 규칙 제53조의 각호)의 어느 하나에 해당하거나
+											소형&middot;저가주택 등을 무주택자로 보는 경우는 주택을 소유하지 않은 것으로 봅니다.
+										</p>
+									</div>
+								</div>
+								<button type="button" className="detail_close">
+									<i className="xi xi-close-thin"></i>
+									<span className="blind">팝업 닫기</span>
+								</button>
+							</div>
+						</div>
+						<p>
+							<strong>*분양권등</strong> : 주택소유로 보는 경우 등 세부사항은 분양권등 참조
+						</p>
+
+					</td>
+					<td>
+						<div className="cnt_question add_box">
+
+								<p className="radio_st2 lg_line2">
+									<input type="radio" name="housePosesn" id="hp00" value="Y" data-nty="A" onClick={this.setHousePosesn}/>
+									<label htmlFor="hp00">예(무주택자아님)</label>
+								</p>
+
+								<p className="radio_st2 lg_line2">
+									<input type="radio" name="housePosesn" id="hp01" value="N" data-nty="A" onClick={this.setHousePosesn}/>
+									<label htmlFor="hp01">아니오(무주택자)</label>
+								</p>
+
+						</div>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<b id="qualf07tit" data-stdrval="N">Q2. 과거 2년내 가점제 당첨여부</b>
+						<span><b className="color_blue">모집공고일(<span name="thisyear2" className="color_blue"></span>년 <span name="thismonth3" className="color_blue"></span>월 <span name="thisdate3" className="color_blue"></span>일)</b> 현재, 본인과 세대에 속한 자가 주택을 소유(분양권등 포함) 하였습니까?</span>
+						<a href="#layer04" className="detail_btn" title="과거 2년내 가점제 당첨자의 가점제 당첨제한 설명보기"><img src="https://static.applyhome.co.kr/images/kabhom/apply_step/detail_chk.png" alt="상세설명"/></a>
+						<div id="layer04" className="detail_layer pop" tabIndex="0">
+							<div className="line_box" style={{margin : 0}}>
+
+								 <div className="line_box">
+									<div className="line_content">
+										<b className="line_tit">과거 2년내 가점제 당첨자의 가점제 당첨제한</b>
+										<p>과거 2년 이내에 가점제로 당첨사실이 있는 세대에 속한 자는 가점제 당첨이 제한되며, 추첨제로
+											청약하여야 합니다. 상기에서 "예"를 선택할 경우 추첨제로 청약되며, 가점제 당첨여부에 관계없이
+											2017.10.17.이전에 당첨된 경우에는 "아니오"를 선택하여 주시기 바랍니다.</p>
+									</div>
+								</div>
+							</div>
+							<div className="line_box">
+								<div className="line_content">
+									<b className="line_tit">적용주택</b>
+									<p>가점제로 공급되는 주택 청약시</p>
+								</div>
+							</div>
+							<div className="line_box">
+								<div className="line_content">
+									<b className="line_tit">과거 가점제 당첨사실 조회</b>
+									<p>청약자 본인의 과거 2년 이내에 가점제 당첨된 내역은 "청약자격확인-청약제한사항 확인 또는
+										청약조회-APT-청약제한사항 확인" 메뉴에서 조회할 수 있습니다. 다만, 청약자의 세대에 속한 자의 과거
+										2년 이내에 가점제로 당첨된 내역 조회는 해당 세대에 속한 자 명의 각각의 공동인증서로 로그인하여
+										조회하여야 합니다.</p>
+								</div>
+							</div>
+							<button type="button" className="detail_close">
+								<i className="xi xi-close-thin"></i>
+								<span className="blind">팝업 닫기</span>
+							</button>
+						</div>
+					</td>
+					<td>
+						<div className="cnt_question add_box">
+							<p className="radio_st2">
+								<input type="radio" name="przwinAt" id="przwinAtY" value="Y" data-drwt="Y" onClick={this.setPrzwinAt}/> <label htmlFor="przwinAtY">예</label>
+							</p>
+							<p className="radio_st2">
+								<input type="radio" name="przwinAt" id="przwinAtN" value="N" onClick={this.setPrzwinAt}/> <label htmlFor="przwinAtN">아니오</label>
+							</p>
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+					<div className="btn_box mt_10">
+						<button type="button" className="btn_cancel" id="btnSubmitPre" onClick = {this.moveLocationBack}>
+							<img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_left.png" alt=""/> 이전
+						</button>
+						<button type="button" className="btn_submit" id="btnSubmitNext" onClick = {this.moveLocationFront}>
+							다음 <img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_right.png" alt=""/>
+						</button>
+					</div>
+
+
+				</>
+			}
+		}
+		ReactDOM.render(<TypeSelect/>, document.getElementById("move"));
+	</script>
+
+<script>
+
+	var suplyTyNm = "일반공급 1순위"
+	$(".line_content").find(":contains('[#공급명')").html(function(i, html){
+		return html.replace(/\[#공급명\]/g, suplyTyNm);
+	});
+
+	/* $(".explan").hover(
+			function() {
+				$(this).parents(".sub_tit").find(".add_line_box").css(
+						"display", "block")
+			},
+			function() {
+				$(this).parents(".sub_tit").find(".add_line_box").css(
+						"display", "")
+			}); */
+
+
+			$(".explan").on("click", function() {
+		        $(this).parents(".sub_tit").siblings().find(".add_line_box").hide();
+		        $(this).parents(".apply_choose_wrap").nextAll().find(".add_line_box").hide();
+		        $(this).find(".add_line_box").toggle();
+		        $(".current").removeClass('current');
+				$(this).find("a").addClass("current");
+		    });
+
+
+		    $(".detail_close").click(function() {
+		        $(this).parent(".add_line_box").hide();
+		        $(".current").focus();
+		    });
+
+		  //상세설명 Sub(직계존속/직계비속) Popup Close
+		    function closePopDetailSub(detailSubId) {
+		        $(detailSubId).css("display","none");
+		        $(detailSubId).removeClass('detail_layer pop');
+		        $(".current").focus();
+		    }
+
+
+
+	$(function() {
+		var thisChk = $(".userChk");
+		$(thisChk).change(function() {
+			if ($(this).prop("checked")) {
+				$(this).parents("tr").next(".modi_tr").hide();
+			} else {
+				$(this).parents("tr").next(".modi_tr").show();
+			}
+		});
+
+	$(".speculation").on(
+				"click",
+				"input[type='radio']",
+				function() {
+					var $dataObj = $(this).parents('.speculation');
+					var qCd = $dataObj.data("qcd");
+
+					if ($(this).val() != $("#qualfCodeSpecltRdn" + qCd).data(
+							"stdrval")) {
+						var vMsg = fn_getSpecltRdnCheckMsg($(
+								"#qualfTitSpecltRdn" + qCd).text());
+						vMsg += "\n\n\"확인\" 버튼을 클릭하면 초기화면으로 이동합니다.";
+
+						if (confirm(vMsg)) {
+							$net.href("/");
+						} else {
+							$dataObj.children("dl")
+									.removeClass("cnt_qu_active");
+							$(this).prop("checked", false);
+						}
+					}
+				});
+
+	$(".btnPopWord").click(function() {
+			var pId = $(this).data("popword");
+			//var pTit = $(this).children('span').text();
+			var pTit = "";
+			if ($(this).children('span').length > 0) {
+				pTit = $(this).children('span').text();
+			} else {
+				pTit = $(this).text();
+			}
+			gfn_popupWordDc(pId, pTit);
+		});
+
+	$("#btnPopRe").click(function() {
+		$("#popScoreCnfirm").dialog("close");
+	});
+
+	$(".btnPop").click(function() {
+			var pId = $(this).data("popid");
+			var pTit = "";
+			if ($(this).children('span').length > 0) {
+				pTit = $(this).children('span').text();
+			} else {
+				pTit = $(this).text();
+			}
+			gfn_popupHtmlDiv(pId, pTit);
+		});
+
+		// 질문에 대한 상세설명 팁 - 2019.11.25 추가
+		$(".detail_btn").click(function() {
+			$(this).parents("tr").siblings().find(".detail_layer").hide();
+			$(this).parents("table").siblings().find(".detail_layer").hide();
+			$(this).next(".detail_layer").toggle().focus();
+			$(".current").removeClass('current');
+			$(this).addClass("current");
+		});
+
+	    var ascDantPopFlag = false;   // 직계존속클릭여부
+	    var descDantPopFlag = false;  // 직계비속클릭여부
+
+	    // 직계존속/직계비속 상세설명팁 팝업
+	    $(".detail_btn2").click(function() {
+
+	        if ($(this).attr('id') == "hshldMbUpptCo") {
+	            // 직계존속 Input Box 클릭
+	            if (ascDantPopFlag == true) {
+	                // 직계존속 설명을 확인했을경우
+	                return;
+	            } else {
+	                ascDantPopFlag = true;
+	            }
+	        } else if ($(this).attr('id') == "hshldMbUndgrndCo") {
+	            // 직계비속 Input Box 클릭
+	            if (descDantPopFlag == true) {
+	                // 직계비속 설명을 확인했을경우
+	                return;
+	            } else {
+	                descDantPopFlag = true;
+	            }
+	        }
+
+	        let detailSubId = $(this).data("popsubid");
+	        $(detailSubId).addClass("detail_layer pop");
+	        $(detailSubId).toggle().focus();
+	        $(".current").removeClass('current');
+	        $(this).addClass("current");
+	    });
+
+		$(".detail_close").click(function() {
+			$(this).parents(".detail_layer").hide();
+			$(".current").focus();
+		});
+
+	$(".my_house_info_popup")
+				.click(
+						function() {
+							var oPopupOptions = new Object();
+
+							oPopupOptions.title = "주택소유 정보 확인";
+							oPopupOptions.url = "/ap/app/reqst/popupMyHouseInfo.do";
+							oPopupOptions.height = "620";
+							oPopupOptions.resizable = false;
+							oPopupOptions.clazz = 'pop_w_1024';
+
+							$pop.dialog(oPopupOptions);
+						});
+
+	$(".applyhome_winning_info_popup")
+				.click(
+						function() {
+							var oPopupOptions = new Object();
+
+							oPopupOptions.title = "재당첨 / 부적격 당첨 / 공급질서 교란 제한 정보 확인";
+							oPopupOptions.url = "/ap/app/reqst/popupApplyhomeWinningInfo.do";
+							oPopupOptions.height = "620";
+							oPopupOptions.resizable = false;
+							oPopupOptions.clazz = 'pop_w_1024';
+
+							$pop.dialog(oPopupOptions);
+						});
+
+
+		$('#spouseAt, #hshldMbUpptCo, #hshldMbUndgrndCo').on('change', function() {
+			var sum = 0;
+			sum += $("input:checkbox[id='spouseAt']:checked").length;
+			sum += Number($("#hshldMbUpptCo").val());
+			sum += Number($("#hshldMbUndgrndCo").val());
+			$("#supportCo").val(sum);
+		});
+
+	});
+
+
+	$('#disa_inp').on('keyup', function() {
+		if ( this.value.length >= 10 && $validate.checkYYYYMMDD($(this).val().replace(/[^0-9]/g, "")) != '' ) {
+			if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('#explan03').data('stde')) ) {
+				alert("올바른 날짜 형식으로 입력해주십시오.\n( 예 : 2010-01-01 )");
+				$(this).val('');
+				$(this).trigger('focus');
+			} else {
+				fn_subscribePd( $(this) );
+			}
+		}
+
+	});
+	$('#disa_inp').on('change', function() {
+		if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('#explan03').data('stde')) ) {
+			alert("올바른 날짜 형식으로 입력해주십시오.\n( 예 : 2010-01-01 )");
+			$(this).val('');
+			$(this).trigger('focus');
+		} else {
+			fn_subscribePd( $(this) );
+		}
+	});
+
+	$("#disa_inp").datepicker({
+		dateFormat: "yy-mm-dd",
+		changeMonth: true,
+		changeYear: true,
+		minDate:'-30Y',
+		maxDate: 'y',
+		yearRange: 'c-30:c',
+		nextText: '다음 달',
+		prevText: '이전 달',
+		dayNames: ['일','월','화','수','목','금','토'],
+		dayNamesShort: ['일','월','화','수','목','금','토'],
+		dayNamesMin: ['일','월','화','수','목','금','토'],
+		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+	});
+
+    /* 부양가족수 계산 */
+    function calcHshldMbcnt() {
+        var sum = 0;
+        sum += $("input:checkbox[id='spouseAt']:checked").length;
+        sum += Number($("#hshldMbUpptCo").val());
+        sum += Number($("#hshldMbUndgrndCo").val());
+        $("#supportCo").val(sum);
+    }
+
+    /* 부양가족수 체크 */
+    function chkHshldMbcnt() {
+        var sum = $("#supportCo").val();
+        var tmpSum = $("input:checkbox[id='spouseAt']:checked").length + Number($("#hshldMbUpptCo").val()) + Number($("#hshldMbUndgrndCo").val());
+        if (sum != tmpSum) {
+            return false;
+        }
+    }
+
+
+
+	/**
+	 * 설명		: 청약 가점점수 확인 팝업 호출함수
+	 * 사용방식	: fn_popScoreConfirm()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_subscribePd($obj){
+
+		$('#subscribeDe').text($obj.val());
+		var stDe = $('#explan03').data('stde');
+		var sbscDe = $obj.val();
+		var stdeArr = stDe.split('-');
+		var sbscDeArr = sbscDe.split('-');
+
+		var yearDif = parseInt(stdeArr[0]) - parseInt(sbscDeArr[0]);
+		var monthDif = parseInt(stdeArr[1]) - parseInt(sbscDeArr[1]);
+		var dayDif = parseInt(stdeArr[2]) - parseInt(sbscDeArr[2]);
+		var monthDec = 0;
+
+		if ( dayDif < 0 ) {
+			monthDif -= 1;
+		}
+		if ( monthDif < 0 ) {
+			yearDif -= 1;
+			monthDif += 12;
+		}
+
+		if ( yearDif < 1 && monthDif < 6 ) {
+			$('#svingsSbscrbPd option').eq(0).prop('selected', true);
+		} else if ( yearDif < 1 && monthDif >= 6 ) {
+			$('#svingsSbscrbPd option').eq(1).prop('selected', true);
+		} else {
+			yearDif += 2;
+
+			//최대
+			var maxPd = $('#svingsSbscrbPd option').last().val();
+			if(yearDif >= maxPd) {
+				$('#svingsSbscrbPd option').last().prop('selected', true);
+			} else {
+				$('#svingsSbscrbPd option').each(function() {
+					if ( parseInt($(this).val()) == yearDif ) {
+						$(this).prop('selected', true);
+					}
+				});
+			}
+		}
+
+		subscribePdNm = $('#svingsSbscrbPd option:selected').text();
+		subscribePdScore = parseInt($('#svingsSbscrbPd').val());
+		$('#subscribePd').text('');
+		$('#subscribePd').text(subscribePdNm + '(' + subscribePdScore + '점)');
+	 }
+
+
+
+	function fn_checkQualfSpecltRdnVal() {
+		var arrVal = new Array();
+		$("input[name='qualfCodeSpecltRdn']")
+				.each(
+						function() {
+							var cd = $(this).val();
+							if ($("input[name='qualfSpecltRdn" + cd
+									+ "']:checked").length == 0) {
+								alert($("#qualfTitSpecltRdn" + cd).text()
+										.trim()
+										+ " 여부 문항에 체크하여 주시기 바랍니다.");
+								$("#qualfSpecltRdnY" + cd).focus();
+
+								return false;
+							}
+							arrVal.push({
+								"cd" : cd,
+								"val" : $(
+										"input[name='qualfSpecltRdn" + cd
+												+ "']:checked").val()
+							});
+						});
+		return arrVal;
+	}
+
+	function fn_getSpecltRdnCheckMsg(vTit) {
+		var vSuplyTyNm = "일반공급 1순위"
+		var vMsg;
+
+		if (vTit.indexOf("재당첨") > -1) {
+			vMsg = "재당첨 제한대상 주택 당첨자 및 그 세대에 속한 자\n"
+					+ "(배우자 분리세대 포함) 재당첨 제한기간 동안\n"
+					+ "투기과열지구 또는 청약과열지역에서 공급하는\n"
+					+ "분양주택(분양전환 공공임대주택 포함)의 입주자 및 예비입주자로 선정될 수 없습니다.";
+		} else if (vTit.indexOf("세대주") > -1) {
+			vMsg = "세대주가 아닌 자는 투기과열지구 또는 청약과열지역에서 공급하는 주택에서 " + vSuplyTyNm
+					+ " 청약이 불가능합니다.";
+		} else if (vTit.indexOf("과거") > -1) {
+			vMsg = "과거 5년 이내에 다른 주택에 당첨된 사실이 있는 무주택세대구성원은\n"
+					+ "투기과열지구 또는 청약과열지역에서 공급하는 주택에서 " + vSuplyTyNm
+					+ " 청약이 불가능합니다.";
+		} else if (vTit.indexOf("주택소유") > -1) {
+			vMsg = "2주택 이상을 소유(분양권등 포함)한 세대에 속한 자는\n" + vSuplyTyNm
+					+ " 청약이 불가능합니다.";
+		} else {
+			vMsg = "잘못된 선택입니다.";
+		}
+
+		return vMsg;
+	}
+
+	var vRsResideSecd = $("#rsResideSecd").val();
+	if (vRsResideSecd == "01" || vRsResideSecd == "02" || vRsResideSecd == "03") {
+		$("#nonSolder input[name='resideSecd']").each(
+				function() {
+					if ($(this).val() != vRsResideSecd) {
+						var tgtSn = $(this).data("sn");
+                        //라디오+드롭다운 disable
+                        /*
+						$("#pSel" + tgtSn).addClass("disabled").removeClass(
+								"choiseY");
+						$("#selAreaCode" + tgtSn).attr("disabled", "disabled")
+								.removeClass("choiseY");
+                        */
+					}
+				});
+	}
+
+	$("#nonSolder, #solder").on("click", "input[name=resideSecd]", function() {
+		var selSn = $(this).data("sn");
+		fn_selReside(selSn);
+	});
+
+	$("#nonSolder, #solder").on("click", "select[name=selAreaCode]",
+			function() {
+				var selSn = $(this).data("sn");
+				fn_selReside(selSn);
+			});
+
+	$("input[name='lngtrSrvicSolderAt']").on(
+			"click",
+			function() {
+				var $showObj, $hideObj = null;
+
+				if ($(this).val() == "Y") {
+					$showObj = $("#solder");
+					$hideObj = $("#nonSolder");
+				} else {
+					$showObj = $("#nonSolder");
+					$hideObj = $("#solder");
+				}
+
+				$showObj.find("input[type='radio'].choiseY, select.choiseY")
+						.removeAttr("disabled");
+				$showObj.find("p.choiseY").removeClass("disabled");
+				$showObj.show();
+
+				$hideObj.hide();
+				$hideObj.find("input[type='radio'].choiseY").prop("checked",
+						false).attr("disabled", "disabled");
+				$hideObj.find("select.choiseY").val("").attr("disabled",
+						"disabled");
+			});
+
+	$('#bhmlsPd').on('click', function() {
+		var oPopupOptions = new Object();
+
+		oPopupOptions.title = "무주택기간 계산";
+		oPopupOptions.url = "/ap/apg/calculateBhmlsPdView.do";
+		oPopupOptions.height = "620";
+		oPopupOptions.resizable = false;
+		oPopupOptions.clazz = 'pop_w_900';
+
+		$pop.dialog(oPopupOptions);
+	});
+
+	$("input[name='przwinAt']").on("click",function() {
+		var $vPrzwin = $("input[name=przwinAt]:checked");
+		if($vPrzwin.val() == 'N') {
+			var $vHouse = $("input[name=housePosesn]:checked");
+			if($vHouse.length == 0) {
+				return ;
+			}
+
+			if ($("#apsSubscrptAtOri").val() == "Y" && $vHouse.data("nty") == "D") {
+				return ;
+			}
+			$("#apsPrzwinAt").val('N');
+			$("#apsSubscrptAt").val($("#apsSubscrptAtOri").val());
+			fn_addpntIemInput(true);
+			return ;
+		}
+
+		fn_addpntIemInput(false);
+
+		var msg = "과거 2년 이내에 가점제로 당첨된 사실이 있는 세대에 속한 자는 1순위 가점제 적용대상이 아니며, 추첨제로 청약하여야 합니다.";
+		if (!confirm(msg)) {
+			$vPrzwin.prop("checked", false);
+			return;
+		}
+		$("#apsPrzwinAt").val('Y');
+		$("#apsSubscrptAt").val("N");
+	});
+
+
+	$("input[name='housePosesn']").on("click",function() {
+		var msg = "";
+		var $vHouse = $("input[name=housePosesn]:checked");
+
+		var hVal = $vHouse.val();
+		var hNty = $vHouse.data("nty");
+		var apsPrzwinAt = 'Y';
+
+		if (hNty == "L") {
+			msg = $vHouse.next('label').text().trim()
+					+ " 세대에 속한 자는 1순위 청약이 불가합니다."
+					+ "\n\n\"확인\"버튼을 클릭하면 초기화면으로 이동합니다.";
+
+			if (confirm(msg)) {
+				$net.href("/co/coa/selectMainView.do");
+			} else {
+				$vHouse.prop("checked", false);
+				$vHouse.focus();
+			}
+			fn_addpntIemInput(false);
+			return;
+		}
+
+
+		if ($("#apsSubscrptAtOri").val() == "Y" && hNty == "D") {
+			// 가점항목 숨김
+			fn_addpntIemInput(false);
+
+			var msg = "1주택을 소유(분양권등 포함)한 세대에 속한 자는 1순위 가점제 적용대상이 아니며, 추첨제로 청약하여야 합니다.";
+			if (!confirm(msg)) {
+				$vHouse.prop("checked", false);
+				$vHouse.focus();
+				return;
+			}
+			$("#apsSubscrptAt").val("N");
+
+
+			if (hVal == "1") {
+				checkSubmit = false;
+				fn_popPosesnHouseSale();
+				return;
+			}
+
+			return;
+		}
+
+
+		if (hVal == "1") {
+			checkSubmit = false;
+			fn_popPosesnHouseSale();
+		}
+
+		var $vPrzwin = $("input[name=przwinAt]:checked");
+		if(apsPrzwinAt == 'Y' && (($vPrzwin.length == 0 || $vPrzwin.val() == 'Y'))) {
+			fn_addpntIemInput(false);
+			return;
+		}
+
+		fn_addpntIemInput(true);
+	});
+
+	/**
+	 * 설명     : 가점항목 입력 화면 dipaly 결정
+	 * 사용방식 : fn_addpntIemInput(true/false)
+	 * 주의     :
+	 * 리턴     :
+	 */
+	function fn_addpntIemInput(aVisible) {
+		var addpntIemInput = document.getElementById('addpntIemInput');
+
+		if (aVisible == true) {
+			addpntIemInput.style.display = 'block';
+
+			var $vHouse = $("input[name=housePosesn]:checked");
+			var hVal = $vHouse.val();
+			$("#sel_01").find('option').remove().end();
+			if(hVal != "0") {
+				var $options 	= $('#bhmlsPdScoreCodeTemp2').children().clone();
+				$("#sel_01").append($options);
+				$("#sel_01").attr('disabled', true);
+			} else {
+				var $options 	= $('#bhmlsPdScoreCodeTemp1').children().clone();
+				$("#sel_01").append($options);
+				$("#sel_01").removeAttr('disabled');
+			}
+		} else if (aVisible == false) {
+			addpntIemInput.style.display = 'none';
+		}
+	}
+
+	/**
+	 * 설명		: 거주지역 선택 시 활성화/비활성화 처리
+	 * 사용방식	: fn_selReside()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_selReside(sn) {
+
+	$("p.sel_st").addClass("disabled");
+		$(".sel_st select[id!='selAreaCode" + sn + "']").val("").attr(
+				"disabled", "disabled");
+
+	$("#pSel" + sn).removeClass("disabled");
+		$("#selAreaCode" + sn).removeAttr("disabled");
+
+		if ($("#resideSecd" + sn).is(":checked") == false) {
+			$("#resideSecd" + sn).prop("checked", true);
+		}
+
+	if ($("#selAreaCode" + sn + " option").length == 2) {
+			$("#selAreaCode" + sn + " option").eq(1).prop("selected", true);
+		}
+	}
+
+	/**
+	 * 설명		: 입력값에 따라 기존소유주택처분 서약 팝업을 호출한다.
+	 * 사용방식	: fn_popPosesnHouseSale()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_popPosesnHouseSale() {
+		var popId = "";
+		if ($("#housePosesnAtTy").val() == "3") {
+
+	popId = "posesnHouseSaleHot";
+		} else {
+			var $vPrzwin = $("input[name=przwinAt]:checked");
+			if ($vPrzwin.val() == "Y") {
+
+	popId = "posesnHouseSalePrzwin";
+			} else {
+
+	popId = "posesnHouseSale";
+			}
+		}
+
+		var pTit = "기존 소유주택 처분 서약";
+		if ($("#popDiv" + popId).length > 0 && $("#" + popId).length > 0) {
+			gfn_popupDiv(popId, pTit);
+		} else {
+			$("body").append(
+					"<div id='popDiv"+popId+"' style='display:none;'/>");
+			$("#popDiv" + popId)
+					.load(
+							"/html/kabhom/ap/" + popId + ".html",
+							function(responseTxt, statusTxt, xhr) {
+								if (statusTxt == "success") {
+									gfn_popupDiv(popId, pTit);
+
+
+										$("#btnCancel").click(
+											function() {
+												checkSubmit = true;
+												$(
+														"input[name=housePosesn]:checked")
+														.prop(
+																"checked",
+																false);
+												$("#popDiv" + popId)
+														.dialog("close");
+
+											});
+
+
+										$("#btnSubmit").click(
+											function() {
+												if ($("#chkY:checked").length > 0) {
+
+													checkSubmit = true;
+													$("#agreAt").val("Y");
+													$("#popDiv" + popId).dialog("close");
+												} else {
+													alert("기존 소유주택 처분관련 서약내용 등을 확인하신 후 \"예\"를 선택하여 주시기 바랍니다.");
+													return;
+												}
+											});
+								}
+							});
+		}
+	}
+
+	/**
+	 * 설명		: 가점제 정보 입력 check
+	 * 사용방식	: fn_checkAddpntIemInput()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_checkAddpntIemInput() {
+		var addpntIemInput = document.getElementById('addpntIemInput');
+
+		if (addpntIemInput.style.display == 'none') {
+			return true;
+		}
+
+		$("#housePosesnAtTy").val()
+
+		if ($("#chkCnfirm").is(":checked") == false) {
+			alert("유의사항을 확인 후 체크해 주시기 바랍니다.");
+			$("#chkCnfirm").focus();
+			return false;
+		}
+
+		var $dontHaveHousePeriod = $("#sel_01");
+		if ($dontHaveHousePeriod.length == 0
+				|| $str.isEmpty($dontHaveHousePeriod.val())) {
+			alert("무주택기간을 선택해 주십시오.");
+			$("#sel_01").focus();
+			return false;
+		}
+
+
+
+		if($("#hshldMbUpptCo").val() == "") {
+			alert("직계존속 수를 입력해 주십시오.\n부양가족수로 산정할 수 있는 직계존속이 없는 경우 '0'을 입력하십시오.");
+			$("#hshldMbUpptCo").focus();
+			return false;
+		}
+
+		if($("#hshldMbUndgrndCo").val() == "") {
+			alert("직계비속 수를 입력해 주십시오.\n부양가족수로 산정할 수 있는 직계비속이 없는 경우 '0'을 입력하십시오.");
+			$("#hshldMbUndgrndCo").focus();
+			return false;
+		}
+
+        if(chkHshldMbcnt() == false) {
+            alert("부양가족수 합계가 틀립니다.\n수동계산을 클릭해 주십시오.");
+            return false;
+        }
+
+		if ( isNaN(Date.parse( $('#disa_inp').val() )) ) {
+			alert('올바른 날짜 형식으로 입력해주십시오.\n(예 : 2010-01-01)');
+			$('#disa_inp').val('');
+			$('#disa_inp').trigger('focus');
+			return false;
+		}
+
+		var today = new Date();
+		var regday = new Date(today.setFullYear(today.getFullYear()-30));
+		regday = regday.getFullYear()+"-"+("0"+(regday.getMonth()+1)).slice(-2)+"-"+("0"+regday.getDate()).slice(-2);
+		if ( $('#disa_inp').val() < regday ) {
+			alert('청약통장 가입일이 잘못 입력되었습니다.\n올바른 날짜를 입력해주십시오.');
+			$('#disa_inp').val('');
+			$('#disa_inp').trigger('focus');
+			return false;
+		}
+
+
+		fn_popScoreConfirm();
+	}
+
+	/**
+	 * 설명		: 청약 가점점수 확인 팝업 호출함수
+	 * 사용방식	: fn_popScoreConfirm()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_popScoreConfirm() {
+
+		var bhmlsPd = $('#sel_01').val();
+		if (bhmlsPd === 'HP' || bhmlsPd === 'SH') {
+			bhmlsPd = '00';
+		}
+
+		var bhmlsPdScore = Number(bhmlsPd);
+		$("#popBhmlsPdNm").text($('#sel_01 option:selected').text());
+		$("#popBhmlsPdScore").text(bhmlsPdScore);
+
+		var suportFamilyScore = 0;
+    	var suportFamilyScoreNM = "";
+    	var supportCo = Number($('#supportCo').val());
+    	if(supportCo <= 0 ) {
+    		suportFamilyScore = 5;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo <= 1 ) {
+    		suportFamilyScore = 10;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo <= 2 ) {
+    		suportFamilyScore = 15;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo <= 3 ) {
+    		suportFamilyScore = 20;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo <= 4 ) {
+    		suportFamilyScore = 25;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo <= 5 ) {
+    		suportFamilyScore = 30;
+    		suportFamilyScoreNM = supportCo + "명";
+    	} else if(supportCo >= 6 ) {
+    		suportFamilyScore = 35;
+    		suportFamilyScoreNM = "6명이상";
+    	} else {
+    		suportFamilyScore = 5;
+    		suportFamilyScoreNM = "0명";
+    	}
+    	$("#popSuportFamilyNm").text(suportFamilyScoreNM);
+    	$("#popSuportFamilyScore").text(suportFamilyScore);
+    	$("#supportScore").val(suportFamilyScore);
+
+
+		var svingsSbscrbPdScore = Number($('#svingsSbscrbPd').val());
+		$("#popSvingsSbscrbPdNm").text($('#svingsSbscrbPd option:selected').text());
+		$("#popSvingsSbscrbPdScore").text(svingsSbscrbPdScore);
+
+		$("#popTotScore").text(bhmlsPdScore+suportFamilyScore+svingsSbscrbPdScore);
+
+		var oPopupOptions = new Object();
+
+		oPopupOptions.title = "청약가점점수 확인";
+		oPopupOptions.divId = "popScoreCnfirm";
+		oPopupOptions.height = "670";
+		oPopupOptions.resizable = false;
+		oPopupOptions.clazz = 'pop_w_700';
+
+		$pop.dialog(oPopupOptions);
+	}
+
+	var checkSubmit = true;
+
+	$("#btnSubmitPre").click(function() {
+	  //$net.href("/ap/app/reqst/step2.do");
+		$net.submit("reqstForm", "/ap/app/reqst/step2.do");
+	});
+
+	$("#btnSubmitNext")
+			.on(
+					"click",
+					function() {
+						if ($("#houseManageNo").val() < 1
+								|| $("#pblancNo").val() < 1) {
+							if (confirm("잘못된 주택정보입니다. 버튼을 클릭하면 초기화면으로 이동합니다.")) {
+								$net.href("/");
+							}
+							return;
+						}
+
+	var totCnt = Number("");
+						if (totCnt != null && totCnt > 0) {
+							var arrQualfSpecltRdnVal = fn_checkQualfSpecltRdnVal();
+							if (arrQualfSpecltRdnVal == false) {
+								return;
+							}
+							if (totCnt != arrQualfSpecltRdnVal.length) {
+								alert("투기과열지구 및 청약과열지역 자격 확인 문항이 없습니다. 관리자에게 문의바랍니다.");
+								return;
+							}
+						}
+
+	var vSolderAt = null;
+						if ($("#lngtrSrvicSolderAtY").length > 0) {
+							vSolderAt = $.trim($(
+									"input[name=lngtrSrvicSolderAt]:checked")
+									.val());
+						} else {
+							vSolderAt = "N";
+						}
+						if ($str.isEmpty(vSolderAt)) {
+							alert("장기복무군인 해당여부를 선택하여 주십시오. ");
+							return;
+						}
+						$("#solderAt").val(vSolderAt);
+
+						var vResideSecd = $.trim($(
+								"input[name='resideSecd']:checked").val());
+						if ($str.isEmpty(vResideSecd)) {
+							alert("거주지를 선택하여 주십시오.");
+							return;
+						}
+
+						var sn = $("input[name='resideSecd']:checked").data(
+								"sn");
+						var $areaCode = $("#selAreaCode" + sn);
+						if ($areaCode.length == 0
+								|| $str.isEmpty($areaCode.val())) {
+							alert("거주지 지역을 선택하여 주십시오.");
+							return;
+						}
+						$("#resideAreaCode").val($areaCode.val());
+
+						var checkSubscrptQualf = true;
+
+
+
+						var $vHouse = $("input[name=housePosesn]:checked");
+						if (checkSubscrptQualf == true && $vHouse.length == 0) {
+							alert("주택소유여부를 선택해 주시기 바랍니다.");
+							$("#hp00").focus();
+							return;
+						}
+
+
+						var $vPrzwin = $("input[name=przwinAt]:checked");
+						if (checkSubscrptQualf == true && $("input[name=przwinAt]").length > 0) {
+							if ($vPrzwin.length == 0) {
+								alert("과거 2년내 가점제 당첨여부를 선택해 주시기 바랍니다.");
+								$("#przwinAtN").focus();
+								return;
+							}
+							$("#apsPrzwinAt").val($vPrzwin.val());
+						}
+
+						if ($("#apsSubscrptAt").val() == 'N' || $("#apsSubscrptAt").val() == '') {
+							fn_sumbmit();
+							return;
+						}
+
+						if (fn_checkAddpntIemInput() == false) {
+							return;
+						}
+					});
+
+
+	$("#btnPopNext").on("click", function() {
+		fn_sumbmit();
+	});
+
+	function fn_nextCallBack(vResBody) {
+		if (vResBody.codeRtn == "200") {
+		  //$net.href("/ap/app/reqst/step4.do");
+			$("#processTm").val(vResBody.processTm);
+			$net.submit("reqstForm", "/ap/app/reqst/step4.do");
+		} else {
+			gfn_hideCmmnProgressBar();
+			checkSubmit = true;
+			alert(vResBody.msgRtn);
+		}
+	}
+</script>
+</div>
+
+
+
+
+<script>
+	function datevalue(){
+		var today = new Date;
+		var year = today.getFullYear();
+		var month = today.getMonth() + 1;
+		var date = today.getDate();
+		document.getElementsByName("thisyear")[0].innerText=year;
+		document.getElementsByName("thisyear1")[0].innerText=year;
+		document.getElementsByName("thisyear2")[0].innerText=year;
+		document.getElementsByName("thisyear3")[0].innerText=year;
+		document.getElementsByName("yearago")[0].innerText=year-10;
+		document.getElementsByName("thismonth")[0].innerText=month;
+		document.getElementsByName("thismonth1")[0].innerText=month;
+		document.getElementsByName("thismonth2")[0].innerText=month;
+		document.getElementsByName("thismonth3")[0].innerText=month;
+		document.getElementsByName("thismonth4")[0].innerText=month;
+		document.getElementsByName("thisdate")[0].innerText=date;
+		document.getElementsByName("thisdate1")[0].innerText=date;
+		document.getElementsByName("thisdate2")[0].innerText=date;
+		document.getElementsByName("thisdate3")[0].innerText=date;
+		document.getElementsByName("thisdate4")[0].innerText=date;
+	}datevalue()
+</script>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APR10R04";
+</script>
+<script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/util/hom.all.js"></script>
+</body>
+</html>

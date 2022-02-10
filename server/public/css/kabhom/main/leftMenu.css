@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+
+/*좌측트리메뉴*/
+
+#gnbTree{
+    width: 280px
+}
+#gnbTree > li > ul{
+    display: none;
+    
+}
+#gnbTree > li > button{
+    width: 100%;
+    border: none
+}
+#gnbTree > li {
+	border-bottom: 1px solid #dddd;
+}
+#gnbTree > li > button,
+#gnbTree > li > a{
+    display: block;
+    text-align: center;
+    padding:10px;
+    background-color: #f7f7f7;
+    transition: 0.3s
+}
+
+
+
+#gnbTree li ul li button:hover,
+#gnbTree li ul li a:hover{
+    font-weight: bold;
+    
+}
+
+#gnbTree > li > button:hover,
+#gnbTree > li > button.on,
+#gnbTree > li > a:hover,
+#gnbTree > li > a.on{
+    background-color: #0068b7;
+    color: #fff
+}
+
+
+#gnbTree li ul li {
+    padding: 4px 13px;
+    background-color: #fff
+}
+#gnbTree li ul li ul li{
+    padding: 2px 10px
+}
+
+#gnbTree > li > ul > li > a{
+    font-family: 'noto-sans-scott-m';
+    color: #0068b7;
+    
+}
+
+
+
+#gnbTree > li > ul > li > a::before{
+    content: "- "
+} 
+
+#gnbTree > li > ul > li > ul > li a::before{
+    content: "· "
+} 
+
+#gnbTree li ul li ul li a{
+    font-size: 0.9rem
+}
+
+#gnbTree > li > ul > li > ul > li a:nth-of-type(2)::before{
+    content: ""
+} 
+
+/*#gnbTree li a:focus{outline: none}*/
+
+#gnbTree li ul li ul li span{
+    display: inline-block;
+    height: 15px;
+    overflow: hidden;
+    padding:0px 3px
+    }
+
+/*좌측 푸터 퀵메뉴*/
+
+.foot_link.foot_quick{
+    text-align: center;
+    width: 95%;
+    border-bottom: 1px solid #d7d7d7
+}
+.foot_link.foot_quick li{
+    display: inline-block;
+    width: 30%;
+    font-size: .8rem
+}
+
+
+.foot_link.foot_quick li > a{
+    width: 35px; 
+    height: 35px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: .5s;
+    border: 1px solid #ededed
+}
+.foot_link.foot_quick li > a.iconGuide{
+    background-image: url(/images/kabhom/common/ic_left.gif)
+}
+.foot_link.foot_quick li > a.iconSms{
+    background-image: url(/images/kabhom/common/ic_left.gif);
+    background-position: 0px -35px;
+}
+.foot_link.foot_quick li > a.iconVirtu{
+    background-image: url(/images/kabhom/common/ic_left.gif);     background-position: 0px -70px;
+}
+.foot_link.foot_quick li > a.iconCulc{
+    background-image: url(/images/kabhom/common/ic_left.gif);
+    background-position: 0px -105px;
+}
+.foot_link.foot_quick li > a.iconFaq{
+    background-image: url(/images/kabhom/common/ic_left.gif);
+    background-position: 0px -140px;
+}
+.foot_link.foot_quick li > a.iconStati{
+    background-image: url(/images/kabhom/common/ic_left.gif);
+    background-position: 0px -175px;
+}
+.foot_link.foot_quick li:hover > a.iconGuide{
+    background-position: -35px 0px
+}
+.foot_link.foot_quick li:hover > a.iconSms{
+    background-position: -35px -35px
+}
+.foot_link.foot_quick li:hover > a.iconVirtu{
+    background-position: -35px -70px
+}
+.foot_link.foot_quick li:hover > a.iconCulc{
+    background-position: -35px -105px
+}
+.foot_link.foot_quick li:hover > a.iconFaq{
+    background-position: -35px -140px
+}
+.foot_link.foot_quick li:hover > a.iconStati{
+    background-position: -35px -175px
+}
+
+.foot_link.foot_quick li > a{
+    text-indent: -99999px;
+    overflow: hidden
+}
+
+#wrapper #header,
+#wrapper2 #header{
+    /* width: 297px */
+}
+
+.foot_wrap{
+    padding-bottom: 20px;
+    width: 
+}
+
+
+
+/*
+.add_foot .custom_info{
+    width: 100%
+}
+*/
+
+.first_conf li a span{
+    font-size: 0.9rem
+}
+
+/*은행담당자 사업주체버튼*/
+.h_top_link2{
+    background-color: transparent; width: 90%; position: relative; margin: 1px auto 0; line-height: 30px; padding-top: 6px
+}
+.apply2{
+    color: #fff;width:32.5%; text-align: center;display: inline-block;    background-color: #f04d0d;border-radius: 5px; padding: 2px 0px
+}
+
+.bank2{
+    color: #fff;width:32.5%; text-align: center;display: inline-block;    background-color: #295599;border-radius: 5px;padding: 2px 0px
+    
+}
+.busi2{
+    color: #fff;width: 32.5%; text-align: center;display: inline-block; background-color: #3b3b3b;border-radius: 5px;padding: 2px 0px
+}
+
+
+.m_navi_tab{
+	width: 100%;
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	left: 0;
+	top: 0;
+	text-align: center;
+}
+
+.m_navi_tab a{
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -9999px;
+	z-index: 1;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #333;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.m_navi_tab a:hover,
+.m_navi_tab a:focus {
+	top: 0;
+}
+
+.m_navi_tab{
+	display:none
+	}
+	
+.custom_info dl dd .pcTel b,
+.mobileTel b{
+	color: #ffdd24
+}
+.custom_info dl dd .pcTel small,
+.mobileTel small{
+	font-size:80%
+}
+
+    
+/*미디어 쿼리*/
+@media all and (max-width: 968px){
+    
+    #gnbTree{
+        width: 100%
+    }
+    
+    #wrapper #header,
+	#wrapper2 #header{
+	    width: 100%;
+	    overflow:initial
+	}
+	
+	#gnbTree li ul li ul li{
+    padding: 5px 13px
+}
+
+	.navi_tab{
+	display:none
+	}
+	.m_navi_tab{
+	display:block
+	}
+	
+	.h_top_link2{
+	display:none;
+	}
+    .apply2,
+	.bank2,
+	.busi2{
+	    width: 100%;
+	    margin:2px 0px;
+	    padding:0px
+}
+
+.webbanner{display: none}
+}
+

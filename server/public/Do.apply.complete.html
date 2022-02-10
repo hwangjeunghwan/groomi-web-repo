@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+  <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<!-- <script src="js/kabhom/com/com.js"></script> -->
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<script>
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		// if(gfn_isMobile()) {
+		// 	$('#divTab').css("display","none");
+		// }
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+	<!-- react 및 axios -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js" ></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						모집공고단지 청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다</p>
+
+					<div class = "lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="" data-mid="100126" data-umid="100122"> <i class="xi-angle-right-thin"></i> 신청 완료 </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+		<div class="sub_content_box" id="subContent">
+			<div class="apply_result_chk">
+				<h5 class="sub_sub_tit mb_10"> 청약신청 내역 </h5>
+				<table class="tbl_st only_tbl_tb mt_10 mTbl type04">
+					<caption class="blind"> 청약신청 내역이 나와있는 테이블입니다.</caption>
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:30%">
+						<col style="width:20%">
+						<col style="width:30%">
+					</colgroup>
+					<tbody>
+						<tr>
+
+
+
+									<tr>
+		                                <th scope="row">성명</th>
+		                                <td id = email>YOUR NAME HERE</td>
+										<th scope="row" class="iemNm" data-no="3">거주구분</th>
+										<td class="iemVal" data-no="3" id = locat>해당지역</td>
+		                            </tr>
+
+
+						<tr>
+							<th scope="row">주민등록번호</th>
+							<td>YYMMDD-*******</td>
+							<th scope="row">연락처</th>
+							<td>000-0000-0000</td>
+						</tr>
+						<tr>
+							<th scope="row" class="iemNm" data-no="1">주택명</th>
+							<td class="iemVal" data-no="1" id = houseNm>청약가상체험(민영주택)</td>
+							<th scope="row">청약신청일</th>
+							<td id = today>20YY년 MM월 DD일</td>
+						</tr>
+						<tr>
+							<th scope="row" class="iemNm" data-no="2">주택형</th>
+							<td class="iemVal" data-no="2" id = houseTy>TYPE_TEXT/FLOAT</td>
+							<th scope="row" class="iemNm" data-no="5">최하층 우선배정</th>
+							<td class="iemVal" data-no="5">해당사항 없음</td>
+						</tr>
+
+						<tr>
+							<th scope="row" class="iemNm" data-no="6">청약신청순위</th>
+							<td class="iemVal" data-no="6">1순위</td>
+							<th scope="row" class="iemNm" data-no="7">장기복무군인 신청</th>
+							<td class="iemVal" data-no="7" id = army>해당사항없음</td>
+						</tr>
+					</tbody>
+				</table>
+			<!-- ## 가점제청약 (일반공급 가점제, 특별공급 노부모부양 민간) start-->
+
+				<table class="tbl_st only_tbl_tb tbl_center mt_30 mTbl type12">
+						<caption class="blind">가점제 청약신청 내역이 나와있는 테이블입니다.</caption>
+						<colgroup>
+							<col style="width:25%">
+							<col style="width:25%">
+							<col style="width:30%">
+							<col style="width:auto">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">구분</th>
+								<th scope="col">선택항목</th>
+								<th scope="col">점수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="rowgroup" rowspan="3">가점항목</th>
+								<td>무주택기간(최고32점)</td>
+								<td id = period_nohome_Info>유주택, 30세미만 미혼인 무주택</td>
+								<td id = period_nohome>0점</td>
+							</tr>
+							<tr>
+								<td>부양가족수(최고35점)</td>
+								<td id = num_dependents_Info>1명</td>
+								<td id = num_dependents>10점</td>
+							</tr>
+							<tr>
+								<td>청약통장 가입기간(최고17점)</td>
+								<td id = period_subscription_Info>6월 미만</td>
+								<td id = period_subscription>1점</td>
+							</tr>
+							<tr class="tbl_total mTotal">
+								<th scope="row" colspan="2">총점</th>
+								<td class="br_none"></td>
+								<td><b class="color_blue" id = totalScore>11</b><small class="xsmall">/ 84점</small></td>
+							</tr>
+						</tbody>
+				</table>
+				<ul class="inde_txt">
+					<li>* 주택형 = 주거전용면적(type이 있는 경우 type 포함)</li>
+				</ul>
+
+			<!-- 노부모부양 end ## -->
+
+
+			<!-- ## 이전기관 start-->
+
+			<!-- 이전기관 end ## -->
+
+
+			</div>
+			<div class="btn_box">
+				<button type="button" class="btn_submit" id="btnHome" onclick = "location.href = 'main.home.html' ">홈으로</button>
+				<button type="button" class="btn_submit" id="btnHomePrct" onclick = "location.href = 'do_apply_start.html' ">신청하기</button>
+			</div>
+		</div>
+<script>
+
+	$(function(){
+		// gfn_hideCmmnProgressBar();
+
+
+
+
+			$("#btnSubmitPre").on("click", function()
+			{
+
+				$net.href("");
+			});
+
+			$("#btnSubmitNext").on("click", function()
+			{
+				$net.href("");
+			});
+
+
+
+	});
+
+</script>
+
+
+
+
+	</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APR00R06";
+</script>
+<!-- <script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/util/hom.all.js"></script> -->
+<script>
+const url = "http://k8s-default-backendi-6566bc7d31-1275982292.ap-northeast-2.elb.amazonaws.com/";
+  // http://k8s-default-backendi-6566bc7d31-347925406.ap-northeast-2.elb.amazonaws.com/"
+// 신청 내역 출력
+const callUser = async() => {
+  try{
+    return await axios.get(`${url}session_user`);
+  } catch (error) {console.log(error)}
+}
+const sessionUser = () => {
+  const user = callUser().then(response => {
+  if(response.data.email){
+		//consol.log(response.data.email)
+		// 가산점 출력
+		const callUserInfo = async() => {
+			await axios.post(`${url}connect_db`, {
+				query: `SELECT * FROM user WHERE email = "${response.data.email}";`	})
+				.then((response) => {
+					period_nohome = response.data[0].period_nohome
+					num_dependents = response.data[0].num_dependents
+					period_subscription = response.data[0].period_subscription
+					document.querySelector("#period_nohome_Info").innerText = `${period_nohome} 년 동안 무주택`
+					document.querySelector("#num_dependents_Info").innerText = `${num_dependents} 명`
+					document.querySelector("#period_subscription_Info").innerText = `${period_subscription} 년 미만`
+					document.querySelector("#period_nohome").innerText = `${period_nohome}점`
+					document.querySelector("#num_dependents").innerText = `${num_dependents}점`
+					document.querySelector("#period_subscription").innerText = `${period_subscription}점`
+					var totalScore = parseInt(period_nohome) + parseInt(num_dependents) + parseInt(period_subscription)
+					document.querySelector("#totalScore").innerText =`${totalScore}`
+				}).catch(err => {console.log(err)});
+		}
+		callUserInfo();
+
+		document.querySelector("#email").innerText = `${response.data.email}`
+	}
+  }).catch(error => {console.log(error)})
+};
+sessionUser();
+
+let houseManageNo = location.href.split('?')[1]?.split('=')[1]
+let houseTy = location.href.split('?')[2]?.split('=')[1]
+let dataSet = location.href.split('?')[3]?.split('=')[1].split('')
+let data1 = dataSet[0]
+let data2 = dataSet[1]
+let data3 = dataSet[2]
+let data4 = dataSet[3]
+var dataAPT = {}, dataAPTty = {};
+const callAPT = async() => {
+	await axios.post(`${url}connect_db`, {
+		query: `SELECT * FROM api_apt WHERE houseManageNo = ${houseManageNo};`	})
+		.then((response) => {
+			document.querySelector("#houseNm").innerText = `${response.data[0].houseNm}`
+			document.querySelector("#houseTy").innerText = `${houseTy}`
+			if(data2 == 'Y')
+				document.querySelector("#locat").innerText = `해당지역`
+			else
+				document.querySelector("#locat").innerText = `기타지역`
+			document.querySelector("#army").innerText = `${data1}`
+		}).catch(err => {console.log(err)});
+}
+callAPT();
+
+var date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.querySelector("#today").innerHTML = year + "년 " + month + "월 " + day + "일"
+var applyDay = `${year}-${month >= 10 ? month : '0' + month}-${day >= 10 ? day : '0' + day}`
+
+// DB insert
+const insertApply = async() => {
+	// 내부 함수 1차 - houseTy
+	await axios.post(`${url}connect_db`, {
+		query: `SELECT * FROM api_apt_type_details WHERE houseManageNo = ${houseManageNo};`	})
+		.then((response) => {
+			dataAPTty = response.data[0].houseTy
+			const tmpTy = dataAPTty.split(",")[0]
+			// 내부 함수 2차 - houseNm
+			let tmpHouseNm = async() => {
+				await axios.post(`${url}connect_db`, {
+					query: `SELECT * FROM api_apt WHERE houseManageNo = ${houseManageNo};`	})
+					.then((response) => {
+						houseNm = response.data[0].houseNm
+						// 내부 함수 3차 - email
+						let tmpUser = () => {
+						  const user = callUser().then(response => {
+							  if(response.data.email){
+									var email = response.data.email
+									// 내부 함수 4차 - numApply
+									let tmpNum = async() =>{
+										await axios.post(`${url}connect_db`, {
+											query: `SELECT * FROM applications WHERE email = '${email}' ;`})
+											.then((response) => {
+												let lengthData = response.data.length
+												//consol.log("$$" + tmpTy + "$$" + houseNm + "$$" + email + "$$" + lengthData + "$$" + applyDay)
+												let maxNum = 0
+												response.data.forEach((item, i) => {
+													if(item.numApply > maxNum) maxNum = item.numApply
+												});
+												maxNum += 1 // 가장 마지막 숫자 + 1
+												// 드디어 INSERT
+												let insertData = async() => {
+													await axios.post(`${url}connect_db`, {
+														query: `INSERT INTO applications(email, numApply, houseNm, houseTy, applyDay) values ('${email}', ${maxNum}, '${houseNm}', '${houseTy}', '${applyDay}');`
+													}).then((response) => {
+														//consol.log(response)
+													}).catch(err => console.log(err))
+												}
+												insertData()
+											}).catch(err => {console.log(err)});
+									}
+									tmpNum()
+								}
+							})
+						}
+					tmpUser()
+				}).catch(err => {console.log(err)});
+			}
+			tmpHouseNm()
+		}).catch(err => {console.log(err)});
+}
+insertApply();
+</script>
+</body>
+</html>

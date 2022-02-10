@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<!-- ##### 모달 추가한 부분 -->
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- ##### 모달 추가한 부분 -->
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="/js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<script src="/js/kabhom/com/com.js"></script>
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<div id="sitemap">
+		<div class="guide">
+			<div class="site_box">
+				<ul class="load_nav">
+				</ul>
+				<button type="button" class="close_btn" onclick="javascript:slideUp('sitemap','btn_sitemap');"><i class="xi xi-close"></i><span class="blind">사이트맵 닫기</span></button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						모집공고단지 청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다</p>
+
+					<div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="mo_none" data-mid="100122"><i class="xi-angle-right-thin"></i> 모집공고단지 청약신청</li>
+
+
+
+							<li class="" data-mid="100125" data-umid="100122">
+								<i class="xi-angle-right-thin"></i> 청약가점계산기
+							</li>
+
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+<style>
+html,body{
+height:auto
+}
+</style>
+<div class="sub_content_box" id="subContent">
+	<h4 class="sub_tit">청약가점 계산하기</h4>
+	<div class="chos_wrap">
+		<div class="line_box noti_line">
+			<div class="line_content">
+				<ul class="bul_list">
+					<li>
+						<p>청약가점제에 의해 청약신청을 할 때에는 청약자 본인이 직접 주택소유여부, 무주택기간 및 부양가족수를 산정해야 하므로 신청전에 청약신청 시 유의사항 및 가점제도 내용을 충분히 이해해야만 착오에 따른 불이익을 피할 수 있습니다.</p>
+						<small class="dis_b mt_5">- 착오 신청에 따른 책임은 청약자 본인에게 있으며 은행 및 한국부동산원에서는 이에 책임을 지지 않습니다.<br>- 적용기준을 숙지 후 가점항목을 선택하여 주세요.</small>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="cnt_question mt_30">
+			<dl class="">
+				<dt>Q1.</dt>
+				<dd>
+					<b>무주택기간</b>
+					<span>무주택기간을 선택해주세요. (&#8251;미혼인 경우 만30세부터 기간을 산정)</span>
+					<p class="select_st radios w_auto">
+						<label for="sel_00" class="blind">무주택기간을 선택해주세요.</label>
+						<select name="sel_00" id="sel_00" class="select_sel" data-active="explan01">
+							<option value="">무주택기간선택</option>
+							<option value="-1">유주택</option>
+
+							<option value="0">유주택, 30세미만 미혼인 무주택(0점)</option>
+
+							<option value="2">1년 미만(2점)</option>
+
+							<option value="4">1년 이상～2년 미만(4점)</option>
+
+							<option value="6">2년 이상～3년 미만(6점)</option>
+
+							<option value="8">3년 이상～4년 미만(8점)</option>
+
+							<option value="10">4년 이상～5년 미만(10점)</option>
+
+							<option value="12">5년 이상～6년 미만(12점)</option>
+
+							<option value="14">6년 이상～7년 미만(14점)</option>
+
+							<option value="16">7년 이상～8년 미만(16점)</option>
+
+							<option value="18">8년 이상～9년 미만(18점)</option>
+
+							<option value="20">9년 이상～10년 미만(20점)</option>
+
+							<option value="22">10년 이상～11년 미만(22점)</option>
+
+							<option value="24">11년 이상～12년 미만(24점)</option>
+
+							<option value="26">12년 이상～13년 미만(26점)</option>
+
+							<option value="28">13년 이상～14년 미만(28점)</option>
+
+							<option value="30">14년 이상～15년 미만(30점)</option>
+
+							<option value="32">15년 이상(32점)</option>
+
+						</select>
+					</p>
+				</dd>
+			</dl>
+			<button type="button" class="cnt_q_btn" data-active="explan01">
+				<p>상세보기</p>
+				<img src="images/kabhom/sub/cnt_q_up.png" alt="설명 접기">
+			</button>
+		</div>
+		<div class="line_box explan01" style="display:none;">
+			<div class="line_content">
+				<b class="line_tit">무주택기간 적용기준</b>
+				<p>- 무주택자 여부는 <button type="button" class="btn_voca btnPopWord" data-popword="householdLay"><span>세대</span></button>에 속한 자 전원이 무주택일 경우</p>
+				<p>- 무주택기간은 청약신청자 및 그 배우자의 무주택기간으로 산정</p>
+				<p>- 주택을 소유한 세대(<button type="button" class="btn_voca btnPopWord" data-popword="rightSellHouseLay"><span>분양권등</span></button> 포함)와 만30세 미만. 미혼 무주택자는 0점</p>
+				<b class="line_tit">무주택자 여부</b>
+				<ul class="inde_txt">
+					<li>
+						1) 입주자모집공고일 현재 세대별 주민등록표등본 상에 등재된 청약신청자를 포함한 세대에 속한 자 전원이 주택을 소유(분양권등 포함)하지 아니하여야 함.
+					</li>
+					<li class="mt_5">
+						2) 배우자 분리세대<sup>1)</sup>의 경우에는 주민등록이 분리된 배우자 및 배우자와 동일한 세대를 이루고 있는 세대에 속한 자도 주택을 소유(분양권등 포함)하지 아니하여야 함<br><sup>1)</sup> 청약신청자의 배우자가 동일한 주민등록표등본 상에 등재되어 있지 아니한 경우
+					</li>
+				</ul>
+				<b class="line_tit">무주택기간 산정</b>
+				<ul class="inde_txt">
+					<li>
+						1) 청약신청자 및 배우자가 주택을 소유(분양권등 포함)한 적이 없는 경우
+						<ul class="bul_list line_list">
+							<li>청약신청자의 연령이 만30세가 되는 날부터 주택의 모집공고일까지 기산함. 다만, 만30세가 되기 전에 혼인한 경우 혼인신고일로 등재된 날부터 기산함.</li>
+						</ul>
+					</li>
+					<li class="mt_5">
+						2) 청약신청자 및 배우자가 주택을 소유(분양권등 포함)한 적이 있는 경우
+						<ul class="bul_list line_list">
+							<li>그 주택을 처분한 후 무주택자가 된 날과 위의 1)번의 날 중 늦은날부터 기산함.</li>
+						</ul>
+						<small>* 2회 이상 주택을 소유한 사실이 있는 경우에는 가장 최근에 무주택자가 된 날<br>* 청약신청자의 배우자가 결혼 전 매도한 주택은 산정에서 제외함</small>
+					</li>
+				</ul>
+				<button type="button" class="btn_org btnPopWord" data-popword="noHouseBasisDate">주택 처분 시 무주택기간 기준일</button>
+				<b class="line_tit">무주택기간 산정사례</b>
+				<p>무주택기간은 청약신청자 및 그 배우자를 기준으로 산정합니다.</p>
+				<button type="button" class="btn_org btnPop"  data-popid="bhmlsPdCase">무주택기간 산정 사례</button>
+				<b class="line_tit">무주택기간 계산해보기</b>
+				<p>기간계산은 편리한 계산을 위해 제공하는 것으로 본인이 입력한대로 단순 계산됩니다.</p>
+				<p>선택하신 가점항목에 대한 확인 및 오류입력으로 인한 책임은 본인에게 있는 점 유의하시기 바랍니다. </p>
+				<button type="button" class="btn_org" id="bhmlsPd">무주택기간 등 계산하기</button>
+			</div>
+		</div>
+
+		<div class="cnt_question mt_30">
+			<dl>
+				<dt>Q2.</dt>
+				<dd class="suport_fm">
+					<b>부양가족</b>
+					<span>아래의 <em class="color_org">부양가족 기준</em>을 확인 후 <em class="color_org">4개 항목 모두</em>를 선택바랍니다. <em class="color_org">(&#8251;본인제외)</em></span>
+					<p class="radio_st2 lg_line2" tabindex="0">
+						<input type="radio" name="cnt_q_02" id="q01" value="1">
+						<label for="q01" data-active="explan02">배우자 있음</label>
+					</p>
+					<p class="radio_st2 lg_line2" tabindex="0">
+						<input type="radio" name="cnt_q_02" id="q02" value="0">
+						<label for="q02" data-active="explan02">배우자 없음</label>
+					</p><br>
+					<ul class="radio_box3 mt_10">
+						<li>
+							<label for="sel_01">동일 등본 내 3년 이상 계속하여 등재된 본인의 직계존속(부모/조부모)</label>
+							<p class="select_st radios w_auto mt_10">
+								<select name="suportFamilyCo" id="sel_01" class="select_sel" data-active="explan02">
+									<option value="">인원선택</option>
+
+										<option value="0" data-score="5">0명</option>
+
+										<option value="1" data-score="10">1명</option>
+
+										<option value="2" data-score="15">2명</option>
+
+										<option value="3" data-score="20">3명</option>
+
+										<option value="4" data-score="25">4명</option>
+
+										<option value="5" data-score="30">5명</option>
+
+										<option value="6" data-score="35">6명 이상</option>
+
+								</select>
+							</p>
+						</li>
+						<li>
+							<label for="sel_02">동일 등본 내 3년 이상 계속하여 등재된 배우자의 직계존속(부모/조부모)</label>
+							<p class="select_st radios w_auto mt_10">
+								<select name="suportFamilyCo" id="sel_02" class="select_sel" data-active="explan02">
+									<option value="">인원선택</option>
+
+										<option value="0">0명</option>
+
+										<option value="1">1명</option>
+
+										<option value="2">2명</option>
+
+										<option value="3">3명</option>
+
+										<option value="4">4명</option>
+
+										<option value="5">5명</option>
+
+										<option value="6">6명 이상</option>
+
+								</select>
+							</p>
+						</li>
+						<li>
+							<label for="sel_03">동일 등본 내 등재(만 30세 이상은 1년 이상)된 미혼 직계비속(자녀/손자녀)</label>
+							<p class="select_st radios w_auto mt_10">
+								<select name="suportFamilyCo" id="sel_03" class="select_sel" data-active="explan02">
+									<option value="">인원선택</option>
+
+										<option value="0">0명</option>
+
+										<option value="1">1명</option>
+
+										<option value="2">2명</option>
+
+										<option value="3">3명</option>
+
+										<option value="4">4명</option>
+
+										<option value="5">5명</option>
+
+										<option value="6">6명 이상</option>
+
+								</select>
+							</p>
+						</li>
+					</ul>
+					<p class="score_line"><b>합계</b><span class="color_blue" id="suportSum"></span></p>
+				</dd>
+			</dl>
+			<button type="button" class="cnt_q_btn" data-active="explan02">
+				<p>상세보기</p>
+				<img src="images/kabhom/sub/cnt_q_up.png" alt="설명 접기">
+			</button>
+		</div>
+		<div class="line_box explan02" style="display:none">
+			<div class="line_content">
+				<b class="line_tit">부양가족 기준</b>
+				<p>부양가족은 입주자모집공고일 현재 세대에 속한 자 중에서 아래에 해당하는 경우입니다. (본인 제외)</p>
+				<table class="tbl_st tbl_row mt_30">
+					<caption class="blind">부양가족 기준이 나와있는 테이블입니다.</caption>
+					<colgroup>
+						<col style="width:17%">
+						<col style="width:auto">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">부양가족</th>
+							<th scope="col">상세 설명</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">배우자</th>
+							<td>포함 (배우자 분리세대의 경우에도 포함)</td>
+						</tr>
+						<tr>
+							<th scope="row">직계존속<br>(부모/조부모)<small class="dis_b">&#8251;배우자의 직계존속 포함</small>
+							</th>
+							<td>
+								<p>청약신청자가 세대주여야 하며 3년 이상 동일 주민등록표등본에 등재된 직계존속</p>
+								<p>(배우자분리세대인 경우, 배우자가 세대주여야 하며, 3년 이상 동일 주민등록표등본에 등재된 직계존속)</p>
+								<p class="mt_20">단, 직계존속 및 그 배우자 중 한 명이라도 주택을 소유(분양권등 포함)하고 있는 경우 부양가족으로 보지 않으나 공급규칙 제53조에 해당하는 주택을 가지고 있는 경우 아래와 같이 판단</p>
+								<p>* 주택공급에 관한 규칙 제53조(주택소유여부 판정기준) 적용 사례</p>
+								<ul class="bul_list line_list">
+									<li>직계 존속 또는 그 배우자가 소유하는 주택이 <button type="button" class="btn_voca btnPopWord" data-popword="lowPriceHouseLay"><span>소형&middot;저가주택 등(제9호)</span></button> 및 제53조 각 호(제6호는 제외)에 해당하는 경우 → 부양가족 인정 O</li>
+									<!-- <li>직계 존속이 60세 이상(제9호)이며 소형&middot;저가주택 등 제외 주택소유 → 부양가족 인정 X</li> -->
+									<li>60세 이상의 직계존속이 주택을 소유한 경우(제6호)  →  (원칙)2019.11.1.「주택공급에 관한 규칙」개정·시행에 따라 부양가족 인정 X  →  (예외)제53조 나머지 호중 어느 하나에 해당하는 경우는 부양가족 인정 O</li>
+									<!-- <li>직계 존속이 그 밖의 호에 해당하는 주택소유 → 부양가족 인정 O</li> -->
+								</ul>
+								<br/>
+								<p>또한 아래에 해당하는 직계존속도 부양가족으로 인정하지 않음.</p>
+								<ul class="bul_list line_list">
+									<li>외국인 직계존속</li>
+									<li>내국인 직계존속이라도 요양시설(「주민등록법」 제12조에 따라 주민등록을 하는 노인요양시설을 말함) 및 해외에 체류 중(입주자모집공고일 기준 최근 3년 이내 계속하여 90일을 초과하여 해외에 체류한 경우)인 경우</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">직계비속<br>(자녀/손자녀) </th>
+							<td>
+								-자녀 : 신청자와 동일한 주민등록표등본(배우자 분리세대인 경우, 배우자 등본을 포함)에 등재된 미혼자녀. 다만, 만30세 이상인 자녀는 1년 이상 동일한 주민등록표등본에 등재된 경우에 부양가족으로 인정
+								<br/>* 다만, 혼인 중이거나 혼인한 적이 있는 자녀는 부양가족으로 보지 않습니다.
+								<br/>-손자녀 : 부모가 모두 사망한 경우 미혼인 손자녀
+								<br/>
+								<br/>※ 국토교통부 주택기금과 ‘주택청약 자격 체크리스트(’19.12)’에 따라 외국인 직계비속은 부양가족으로 인정되지 않으며, 내국인 직계비속이라도 해외에 체류중*인 경우에는 부양가족에서 제외
+								<br/>  * 30세 미만 : 입주자모집공고일 기준 현재 계속하여 90일을 초과하여 해외에 체류중인 경우
+								<br/>  * 30세 이상 : 입주자모집공고일 기준 최근 1년 이내 계속하여 90일을 초과하여 해외에 체류한 경우
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="cnt_question mt_30">
+			<dl>
+				<dt>Q3.</dt>
+				<dd>
+					<b>청약통장</b>
+					<span>최초 청약통장 가입일을 입력해주세요.</span>
+
+
+
+							<input type="text" id="disa_inp" class="disa_inp" value="" placeholder="ex) 2009-05-26" data-active="explan03" readonly>
+
+
+
+				</dd>
+                <dd>
+                    <b>&nbsp;</b>
+                    <span>생년월일을 입력해주세요.<em class="color_red"><b>미성년자로서 가입한 기간이 2년을 초과하면 2년만 인정 (주택공급에 관한 규칙 제10조 제6항)</b></em></span>
+                    <input type="text" id="idn_pre" class="disa_inp" value="" placeholder="ex) 2009-05-26" data-active="explan03" readonly>
+                </dd>
+			</dl>
+			<button type="button" class="cnt_q_btn" data-active="explan03">
+				<p>상세보기</p>
+				<img src="images/kabhom/sub/cnt_q_up.png" alt="설명 접기">
+			</button>
+		</div>
+		<div class="line_box explan03" style="display:none" data-stde="2022-01-13" data-pbat="N">
+			<div class="line_content">
+				<b class="line_tit">최초통장가입일</b>
+				<p class="disa_result" id="subscribeDe"></p>
+                <b class="line_tit">생년월일</b>
+                <p class="disa_result" id="subscribeIdnPre"></p>
+				<b class="line_tit mt_10">청약통장 가입기간</b>
+				<p class="disa_result" id="subscribePd"></p>
+				<p class="mt_10">입주자모집공고일 현재 입주자저축 가입자의 가입기간을 기준으로하며, 입주자저축의 종류, 금액, 가입자 명의변경을 한 경우에도 최초 가입일을 기준으로 가입기간을 산정합니다.</p>
+				<p>청약통장 가입일은 청약통장 가입은행에서 조회된 자료로 통장가입기간에 따른 가점은 자동계산됩니다.</p>
+				<p>미성년자로서 가입한 기간이 2년을 초과하면 2년만 인정 (주택공급에 관한 규칙 제10조 제6항)</p>
+
+			</div>
+			<div class="blind">
+				<label for="svingsSbscrbPd">청약가입기간</label>
+				<select name="svingsSbscrbPd" id="svingsSbscrbPd" class="select_sel">
+
+						<option value="1">6월 미만</option>
+
+						<option value="2">6월 이상 ~ 1년 미만</option>
+
+						<option value="3">1년 이상 ~ 2년 미만</option>
+
+						<option value="4">2년 이상 ~ 3년 미만</option>
+
+						<option value="5">3년 이상 ~ 4년 미만</option>
+
+						<option value="6">4년 이상 ~ 5년 미만</option>
+
+						<option value="7">5년 이상 ~ 6년 미만</option>
+
+						<option value="8">6년 이상 ~ 7년 미만</option>
+
+						<option value="9">7년 이상 ~ 8년 미만</option>
+
+						<option value="10">8년 이상 ~ 9년 미만</option>
+
+						<option value="11">9년 이상 ~ 10년 미만</option>
+
+						<option value="12">10년 이상 ~ 11년 미만</option>
+
+						<option value="13">11년 이상 ~ 12년 미만</option>
+
+						<option value="14">12년 이상 ~ 13년 미만</option>
+
+						<option value="15">13년 이상 ~ 14년 미만</option>
+
+						<option value="16">14년 이상 ~ 15년 미만</option>
+
+						<option value="17">15년 이상</option>
+
+				</select>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="btn_box">
+		<button type="button" class="btn_cancel">선택초기화</button>
+
+
+				<!-- #####모달 추가
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+			-->
+		<button type="button" class="btn_submit" onclick= "location.href = 'sign.up.html' ">돌아가기</button>
+
+
+	</div>
+</div>
+<!-- #####모달 추가 -->
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">청약가점점수 확인</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+				<div class="line_content">
+					<b class="line_tit">무주택기간(최고32점)</b>
+					<p class="disa_result" id="subscribeDe"></p>
+	       			<b class="line_tit">부양가족수(최고35점)</b>
+	        		<p class="disa_result" id="subscribeIdnPre"></p>
+					<b class="line_tit mt_10">청약통장 가입기간(최고17점)</b>
+					<p class="disa_result" id="subscribePd"></p>
+				</div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+				<h4 class="modal-title"></h4>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- #####모달 추가 -->
+<script>
+
+var explanation = {
+	hide : function($obj) {
+		$obj.removeClass('cnt_q_on');
+		$obj.children('img').attr('src', 'images/kabhom/sub/cnt_q_up.png');
+		$('.' + $obj.data('active')).hide();
+	}
+	, show : function($obj) {
+		$obj.addClass('cnt_q_on');
+		$obj.children('img').attr('src', 'images/kabhom/sub/cnt_q_down.png');
+		$('.' + $obj.data('active')).show();
+	}
+}
+
+var validation = {
+	checkCustomVal : function() {
+
+		if ( $('#sel_00').val() === '' ) {
+			alert('무주택기간을 선택해 주십시오.');
+			validation.moveScroll($('#sel_00').offset().top - 50);
+			$('#sel_00').trigger('focus');
+			return false;
+		} else if ( !$('.suport_fm input:radio').is(':checked') ) {
+			alert('부양가족 기준(배우자)을 선택해 주십시오.');
+			validation.moveScroll($('#q01').offset().top - 50);
+			return false;
+		} else if ( $('#sel_01').val() === '' ) {
+			alert("본인의 직계존속수를 선택해 주십시오.");
+			validation.moveScroll($('#q01').offset().top - 50);
+			return false;
+		} else if ( $('#sel_02').val() === '' ) {
+			alert("배우자의 직계존속수를 선택해 주십시오.");
+			validation.moveScroll($('#q01').offset().top - 50);
+			return false;
+		} else if ( $('#sel_03').val() === '' ) {
+			alert("직계비속수를 선택해 주십시오.");
+			validation.moveScroll($('#q01').offset().top - 50);
+			return false;
+		} else if ( isNaN(Date.parse( $('#disa_inp').val() )) ) {
+			alert('올바른 날짜 형식으로 입력해주십시오.\n(예시:2009-05-26)');
+			$('#disa_inp').val('');
+			$('#disa_inp').trigger('focus');
+			return false;
+        } else if ( isNaN(Date.parse( $('#idn_pre').val() )) ) {
+            alert('올바른 날짜 형식으로 입력해주십시오.\n(예시:2009-05-26)');
+            $('#idn_pre').val('');
+            $('#idn_pre').trigger('focus');
+            return false;
+		} else if ( $('#sel_00').val() === '0' && $('.suport_fm input:radio[name="cnt_q_02"]:checked').val() === '1' ) {
+			alert ( '"만30세 미만, 미혼인 무주택자"로서 배우자 관련 부양가족을 선택하셨습니다. \n무주택기간 또는 부양가족수를 다시 선택하여 주십시오.');
+			validation.moveScroll($('#sel_00').offset().top - 50);
+			return false;
+		}
+
+		return true;
+	}
+
+	, moveScroll : function(top) {
+		$( 'body,html' ).animate({
+			scrollTop : top
+		}, 500);
+	}
+}
+
+
+function getDiffMonth (strDate1, strDate2) {
+	var result = 0;
+
+	var convDate1 = strDate1.replace(/-/gi, "");
+	var convDate2 = strDate2.replace(/-/gi, "");
+
+	if (convDate1.length == 8 && convDate2.length == 8) {
+         var sYYYY = convDate1.substring(0, 4);
+         var sMM = convDate1.substring(4, 6);
+         var sDD = convDate1.substring(6);
+
+         var eYYYY = convDate2.substring(0, 4);
+         var eMM = convDate2.substring(4, 6);
+         var eDD = convDate2.substring(6);
+
+         dYear = parseInt(eYYYY) - parseInt(sYYYY);
+         dMonth = parseInt(eMM) - parseInt(sMM);
+         dDay = parseInt(eDD) - parseInt(sDD);
+
+         if (dDay < 0) {
+             dMonth--;
+         }
+         if (dMonth < 0 && dYear > 0) {
+             dYear--;
+             dMonth += 12;
+         }
+
+         if (dMonth >= 0) {
+        	 result = (dYear * 12) + dMonth;
+         }
+	}
+	return result;
+}
+
+
+function getAnotherDate(orgDate, period) {
+	var dateStr = new Date(orgDate);
+	dateStr = dateStr.setFullYear(dateStr.getFullYear() + period);
+	dateStr = new Date(dateStr);
+
+    var year = dateStr.getFullYear();
+
+    var month = dateStr.getMonth() + 1;
+    month = month < 10 ? '0' + month : month
+
+    var day = dateStr.getDate();
+    day = day < 10 ? '0' + day : day
+
+    var returnDate = year + '-' + month + '-' + day;
+	return returnDate;
+}
+
+var calculate = {
+	subscribePd : function($obj) {
+
+
+
+		var stDe = $('.explan03').data('stde');
+		var sbscDe = $('#disa_inp').val();
+		var idnPre = $('#idn_pre').val()
+		var adultDe = "";
+
+		if (idnPre.length == 10) {
+			adultDe = getAnotherDate(idnPre, 19);
+		}
+
+		var preAdultMM = 0;
+		var adultMM = 0;
+
+
+		if (sbscDe.length > 0 && adultDe.length > 0) {
+			preAdultMM = getDiffMonth(sbscDe, adultDe);
+
+
+			if (preAdultMM < 0) {
+				preAdultMM = 0;
+			}
+			else if (preAdultMM > 24) {
+				preAdultMM = 24;
+			}
+		}
+
+		if (preAdultMM > 0) {
+
+			adultMM = getDiffMonth(adultDe, stDe);
+		} else {
+
+			adultMM = getDiffMonth(sbscDe, stDe);
+		}
+
+
+        var totalMM = preAdultMM + adultMM;
+
+        var yearDif = parseInt(totalMM / 12);
+        var monthDif = totalMM % 12;
+
+		if ( yearDif < 1 && monthDif < 6 ) {
+			$('#svingsSbscrbPd option').eq(0).prop('selected', true);
+		} else if ( yearDif < 1 && monthDif >= 6 ) {
+			$('#svingsSbscrbPd option').eq(1).prop('selected', true);
+		} else {
+			var selIdx = yearDif += 2;
+			//최대
+			var maxPd = $('#svingsSbscrbPd option').last().val();
+			if(selIdx >= maxPd) {
+				$('#svingsSbscrbPd option').last().prop('selected', true);
+			} else {
+				$('#svingsSbscrbPd option').each(function() {
+					if ( parseInt($(this).val()) == selIdx ) {
+						$(this).prop('selected', true);
+					}
+				});
+			}
+		}
+
+        $('#subscribeDe').text(sbscDe);
+        $('#subscribeIdnPre').text(idnPre);
+
+		subscribePdNm = $('#svingsSbscrbPd option:selected').text();
+		subscribePdScore = parseInt($('#svingsSbscrbPd').val());
+		$('#subscribePd').text('');
+		$('#subscribePd').text(subscribePdNm + '(' + subscribePdScore + '점)');
+	}
+	, familyPoint : function() {
+		var fmCnt = 0;
+		fmCnt += parseInt( $('.suport_fm input:radio[name="cnt_q_02"]:checked').val() );
+		 $('.suport_fm select').each(function() {
+			 fmCnt += parseInt( $(this).val() );
+		});
+		if(fmCnt > 6) {
+			fmCnt = 6;
+		}
+
+		$fmObj = $("#sel_01 option[value='"+fmCnt+"']");
+		var rtn = {
+				 "headCnt" 	: fmCnt
+				,"headCntNm": $fmObj.text()
+				, "point" 	: $fmObj.data("score")
+			};
+		return rtn;
+	}
+}
+
+$(function() {
+
+	$('#brnCalPop').on('click', function() {
+
+		if ( !validation.checkCustomVal() ) {
+			return ;
+		}
+
+
+		var bhmlsPd = $('#sel_00').val();
+
+		if(bhmlsPd == '-1') bhmlsPd = '0';
+		bhmlsPd = parseInt(bhmlsPd);
+
+
+		var suportSumCo = parseInt( $('.suport_fm input:checked').val() );
+		$('.suport_fm select').each(function() {
+			suportSumCo += parseInt( $(this).val() );
+		});
+		if(suportSumCo > 6) {
+			suportSumCo = 6;
+		}
+		var suportSumSc = $("#sel_01 option[value='"+suportSumCo+"']").data("score");
+
+		var addpntFrm = $('<form/>', {name:'addpntFrm', id:'addpntFrm'});
+		$('.btn_box').after(addpntFrm);
+
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'bhmlsPdCd', id:'bhmlsPdCd', value:$('#sel_00').val()}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'bhmlsPdSc', id:'bhmlsPdSc', value:bhmlsPd}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'bhmlsPdNm', id:'bhmlsPdNm', value:$('#sel_00 option:selected').text()}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'suportSumCo', id:'suportSumCo', value:suportSumCo}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'suportSumSc', id:'suportSumSc', value:suportSumSc}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'subscribePdCd', id:'subscribePdCd', value:$('#svingsSbscrbPd').val()}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'subscribePdSc', id:'subscribePdSc', value:parseInt($('#svingsSbscrbPd').val())}) );
+		addpntFrm.append( $('<input/>', {type:'hidden', name:'subscribePdNm', id:'subscribePdNm', value:$('#svingsSbscrbPd option:selected').text()}) );
+
+		var oPopupOptions = new Object();
+
+		oPopupOptions.title = "청약가점점수 확인";
+		oPopupOptions.url = "/ap/apg/calculateAddpntView.do";
+		oPopupOptions.height = "620";
+		oPopupOptions.resizable = false;
+		oPopupOptions.clazz ='pop_w_700';
+		oPopupOptions.formId = "addpntFrm";
+
+		$pop.dialog(oPopupOptions);
+
+		if($('#addpntFrm')){
+			$('#addpntFrm').remove();
+		}
+	});
+
+
+	$('.btn_cancel').on('click',function() {
+		$('.cnt_question p select').val('');
+		$('.radio_st2 input').prop('checked', false);
+		$('#disa_inp').val('');
+		$('#suportSum').text('');
+		$('.cnt_qu_active').removeClass();
+		$('.line_box').hide();
+		explanation.hide($('.cnt_q_btn'));
+		validation.moveScroll($('#subContent').offset().top);
+
+		$('.radio_st2 input').prop('disabled', false);
+		$('.select_st select').prop('disabled', false);
+	});
+
+
+	$('.cnt_question').on('click', '.radio_st2 label, .select_sel, .disa_inp', function() {
+		$(".cnt_qu_active").removeClass();
+		$(this).parents('.cnt_question').children('dl').addClass('cnt_qu_active');
+		explanation.show( $('button[data-active="' + $(this).data('active') +'"]') );
+	});
+
+
+	$('.cnt_question').on('click', '.cnt_q_btn', function() {
+		if ( $(this).attr('class') === 'cnt_q_btn' ) {
+			explanation.show($(this));
+			$(this).parents('.cnt_question').next('.line_box').attr('tabindex','1')
+		} else {
+			explanation.hide($(this));
+			$(this).parents('.cnt_question').next('.line_box').attr('tabindex','')
+		}
+	});
+
+
+	$('.suport_fm').on('change', '.radio_st2 input:radio, .select_st select', function() {
+		if ( $('.suport_fm input:radio').is(':checked') && $('.suport_fm select option:selected[value=""]').length === 0 ) {
+			var rtn = calculate.familyPoint();
+			if ( rtn ) {
+				var cnt = rtn.headCnt;
+				var familyPointNm = '';
+				if ( cnt === 6 ) {
+					familyPointNm = rtn.headCntNm + '(' + rtn.point + '점)';
+				} else {
+					familyPointNm = rtn.headCntNm + '(' + rtn.point + '점)';
+				}
+				$('#suportSum').text('');
+				$('#suportSum').append(familyPointNm);
+			}
+		}
+
+	});
+
+
+	$('#disa_inp').on('keyup', function() {
+		if ( this.value.length >= 10 && $validate.checkYYYYMMDD($(this).val().replace(/[^0-9]/g, "")) != '' ) {
+			if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('.explan03').data('stde')) ) {
+				alert("청약통장 가입일이 올바르지 않습니다.");
+				$(this).val('');
+				$(this).trigger('focus');
+			} else {
+				calculate.subscribePd( $(this) );
+			}
+		}
+
+	});
+
+	$('#disa_inp').on('change', function() {
+		if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('.explan03').data('stde')) ) {
+			alert("청약통장 가입일이 올바르지 않습니다.");
+			$(this).val('');
+			$(this).trigger('focus');
+		} else {
+			calculate.subscribePd( $(this) );
+		}
+	});
+
+
+    $('#idn_pre').on('keyup', function() {
+        if ( this.value.length >= 10 && $validate.checkYYYYMMDD($(this).val().replace(/[^0-9]/g, "")) != '' ) {
+            if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('.explan03').data('stde')) ) {
+                alert("생년월일 형식이 올바르지 않습니다.");
+                $(this).val('');
+                $(this).trigger('focus');
+            } else {
+                calculate.subscribePd( $(this) );
+            }
+        }
+
+    });
+
+    $('#idn_pre').on('change', function() {
+        if ( isNaN(Date.parse($(this).val())) || ($(this).val() > $('.explan03').data('stde')) ) {
+            alert("생년월일 형식이 올바르지 않습니다.");
+            $(this).val('');
+            $(this).trigger('focus');
+        } else {
+            calculate.subscribePd( $(this) );
+        }
+    });
+
+
+
+	$('#bhmlsPd').on('click', function() {
+		var oPopupOptions = new Object();
+
+		oPopupOptions.title = "무주택기간 계산";
+		oPopupOptions.url = "/ap/apg/calculateBhmlsPdView.do";
+		oPopupOptions.height = "620";
+		oPopupOptions.resizable = false;
+		oPopupOptions.clazz ='pop_w_900';
+
+		$pop.dialog(oPopupOptions);
+
+		$('.popBody').attr('tabindex','1').focus();
+	});
+
+
+	$(".btnPopWord").click(function(){
+		var pId = $(this).data("popword");
+		var pTit = "";
+		if($(this).children('span').length > 0){
+			pTit = $(this).children('span').text();
+		} else {
+			pTit = $(this).text();
+		}
+		gfn_popupWordDc(pId, pTit);
+	});
+
+
+	$(".btnPop").click(function(){
+		var pId = $(this).data("popid");
+		var pTit = "";
+		if($(this).children('span').length > 0){
+			pTit = $(this).children('span').text();
+		} else {
+			pTit = $(this).text();
+		}
+		gfn_popupHtmlDiv(pId, pTit);
+	});
+
+	$("#disa_inp").datepicker({
+		dateFormat: "yy-mm-dd",
+		changeMonth: true,
+		changeYear: true,
+		minDate:'-30Y',
+		maxDate: 'y',
+		yearRange: 'c-30:c',
+		nextText: '다음 달',
+		prevText: '이전 달',
+		dayNames: ['일','월','화','수','목','금','토'],
+		dayNamesShort: ['일','월','화','수','목','금','토'],
+		dayNamesMin: ['일','월','화','수','목','금','토'],
+		monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+	});
+
+    $("#idn_pre").datepicker({
+        dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true,
+        minDate:'-90Y',
+        maxDate: 'y',
+        yearRange: 'c-90:c',
+        nextText: '다음 달',
+        prevText: '이전 달',
+        dayNames: ['일','월','화','수','목','금','토'],
+        dayNamesShort: ['일','월','화','수','목','금','토'],
+        dayNamesMin: ['일','월','화','수','목','금','토'],
+        monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+    });
+
+    $('#sel_00').on('change', function() {
+    	var selected = this.value;
+    	if(selected == '0') {
+    		$('#q02').prop("checked", true);
+    		$('#sel_02').val('0');
+    		$('#q01').prop("disabled", true);
+    		$('#sel_02').prop("disabled", true);
+    	} else {
+    		$('#q01').prop("disabled", false);
+    		$('#sel_02').prop("disabled", false);
+    	}
+    });
+});
+</script>
+
+
+
+	</div>
+</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APG01M01";
+</script>
+<script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/util/hom.all.js"></script>
+</body>
+</html>

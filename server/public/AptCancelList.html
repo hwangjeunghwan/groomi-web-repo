@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<!-- <script src="js/kabhom/com/com.js"></script> -->
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<script>
+	// document.domain = "applyhome.co.kr";
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		//if(gfn_isMobile()) {
+			$('#divTab').css("display","none");
+		//}
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+	<!-- react 및 axios -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js" ></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5>
+
+
+						청약신청
+
+
+
+					</h5>
+					<p>주택청약 서비스입니다.</p>
+
+					<div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="mo_none" data-mid="634"><i class="xi-angle-right-thin"></i> 청약신청 내역 확인 및 취소</li>
+
+
+							<li class="mo_none" data-mid="639" data-umid="634"><i class="xi-angle-right-thin"></i> APT</li>
+
+
+
+
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+
+<script>
+	$(document).ready(function(){
+
+        $('#li1').addClass('active').children('a').append('<b class="blind">현재 선택된 분류</b>');
+
+
+
+		$('#btnSearch').on('click', function(){
+			if(fn_checkValidation())
+			{
+				$('#detailForm #searchBankCode').val($('#searchFrm #searchBankCode').val());
+				$('#searchFrm #pageIndex').val("1");
+				fn_searchList(1);
+
+
+			}
+		});
+
+
+
+	});
+
+	/**
+	 * 설명		: APT 1,2순위 청약 신청 상세 내역 조회 페이지로 이동한다.
+	 * 사용방식	: fn_selectDetail(strHouseManageNo, strPblancNo, rceptNo, strSubscrptRankCode)
+	 */
+	function fn_selectDetail(strHouseManageNo, strPblancNo, strRceptNo, strSubscrptRankCode, strHouseName, strHoseType)
+	{
+
+		$('#detailForm #houseManageNo').val(strHouseManageNo);
+		$('#detailForm #pblancNo').val(strPblancNo);
+		$('#detailForm #rceptNo').val(strRceptNo);
+		$('#detailForm #subscrptRankCode').val(strSubscrptRankCode);
+		$('#detailForm #houseName').val(strHouseName);
+        $('#detailForm #houseType').val(strHoseType);
+		$net.submit("detailForm", "/ap/apa/selectAptRankSubscrptCanclDetail.do");
+	}
+
+    /**
+     * 이슈번호 : HOM-9
+     * 기능     : 청약취소 버튼 클릭 이벤트
+     * 개발자   : 이용삼
+     * 추가일자 : 2020.03.18
+     * 설명     : APT 1,2순위 청약취소 상세내역 조회페이지 이동
+     * 사용방식 : fn_cancelDetail(strHouseManageNo, strPblancNo, rceptNo, strSubscrptRankCode)
+     */
+    function fn_cancelDetail(strHouseManageNo, strPblancNo, strRceptNo, strSubscrptRankCode, strHouseName, strHoseType)
+    {
+
+        $('#detailForm #houseManageNo').val(strHouseManageNo);
+        $('#detailForm #pblancNo').val(strPblancNo);
+        $('#detailForm #rceptNo').val(strRceptNo);
+        $('#detailForm #subscrptRankCode').val(strSubscrptRankCode);
+        $('#detailForm #houseName').val(strHouseName);
+        $('#detailForm #houseType').val(strHoseType);
+        $net.submit("detailForm", "/ap/apa/selectAptRankSubscrptCanclDetail.do");
+    }
+
+	/**
+	 * 설명		: 유효성 확인 함수
+	 * 사용방식	: fn_checkValidation()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_checkValidation()
+	{
+		var strSearchBankCode = $('#searchFrm #searchBankCode').val();
+		if(strSearchBankCode == "000")
+		{
+			alert("은행을(를) 선택 해 주세요.");
+			$('#searchFrm #searchBankCode').focus();
+			return false;
+		}
+
+		return true;
+	}
+
+	var checkSubmit = true;
+
+	function fn_callBackLoad() {
+		checkSubmit = true;
+	}
+
+	/**
+	 * 설명		: 신청내역 목록 조회 함수
+	 * 사용방식	: fn_searchList()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_searchList(pageNo) {
+		if(checkSubmit) {
+			checkSubmit = false;
+
+			if(gfn_isNull(pageNo)) {
+				pageNo = 1;
+			}
+			var opts = {Param : {pageIndex : pageNo
+								,searchBankCode : $('#detailForm #searchBankCode').val()
+								,isPaging : "true"
+								,menuFlag : "cancel"}
+						,CallBack : fn_callBackLoad
+					   };
+
+			$net.load("divList", "/ap/apa/selectAptRankSubscrptReqstListView.do", opts);
+		}
+	}
+</script>
+
+<form name="detailForm" id="detailForm" method="POST">
+	<input type="hidden" name="pageIndex" 			id="pageIndex" value=""/>
+	<input type="hidden" name="houseManageNo" 		id="houseManageNo" />
+	<input type="hidden" name="pblancNo" 			id="pblancNo" />
+	<input type="hidden" name="rceptNo" 			id="rceptNo" />
+	<input type="hidden" name="subscrptRankCode" 	id="subscrptRankCode" />
+	<input type="hidden" name="searchBankCode" 		id="searchBankCode" value="088" />
+	<input type="hidden" name="houseName"           id="houseName" />
+	<input type="hidden" name="houseType"           id="houseType" />
+
+    <input type="hidden" name="retUrl"          id="retUrl"  value="/ap/apa/selectAptRankSubscrptCanclList.do"/>
+
+</form>
+
+<form name="searchFrm" id="searchFrm" method="POST">
+	<input type="hidden" name="pageIndex" 		id="pageIndex" value=""/>
+
+		<div class="sub_content_box" id="subContent">
+
+
+
+
+
+        <!--수정전   <div class="tab_wrap">
+                <ul class="tab_box">
+                    <li id="li0"><a href="#"><span>특별공급</span></a></li>
+                    <li id="li1"><a href="#"><span>1순위&middot;2순위</span></a></li>
+                    <li id="li2"><a href="#"><span>무순위</span></a></li>
+                    <li id="li3"><a href="#"><span>취소후재공급</span></a></li>
+                </ul>
+            </div>
+		-->
+			<div class="tab_wrap">
+				<ul class="tab_box"><li id="li0"><a href="#"><span>1순위</span></a></li></ul>
+			</div>
+
+			<h5 class="sub_tit mt_50">1 순위 청약취소</h5>
+			<div class="line_box noti_line">
+				<div class="line_content">
+					<p>청약취소는 청약신청 당일 접수시간(09:00 ~ 17:30) 동안만 가능합니다.</p>
+					<p>아래 주택명을 클릭하시면 청약취소가 가능합니다.</p>
+				</div>
+			</div>
+
+			<h5 class="sub_sub_tit mt_50" ><span id = email></span> 님의 1 순위 청약신청내용</h5>
+			<p class="mt_10">청약신청 상세정보를 보시려면 주택명을 클릭하여 주시기 바랍니다.</p>
+
+			<div class="search_wrap mt_30">
+				<div class="search_box search_02">
+					<span>은행명 선택</span>
+					<div class="select_st">
+						<label for="searchBankCode" class="blind">은행명</label>
+						<select name="searchBankCode" id="searchBankCode">
+
+							<option value="000" >-</option>
+
+							<option value="003" >구름</option>
+						</select>
+					</div>
+					<button type="button" class="search_btn" onclick = "location.href = '#'"><img src="https://static.applyhome.co.kr/images/kabhom/board/ic_search.png" alt=""> 조회</button>
+				</div>
+			</div>
+			<div id="divList">
+				<div class="tbl_scroll mt_10">
+					<table class="tbl_st list_tbl_st tbl_center mTbl type22">
+						<caption class="blind">APT 1순위 청약신청내역(청약신청일 이후 3개월)의 번호, 청약신청일, 가입은행, 순위, 주택명, 주택형, 경쟁률이 나와있는 테이블입니다.</caption>
+						<colgroup>
+							<col style="width:7%">
+							<col style="width:17%">
+						    <col style="width:15%">
+							<col style="width:15%">
+							<col style="width:17%">
+							<col style="width:17%">
+					<!--	<col style="width:auto">-->
+					     	<col class="cancel_st" style="width:17%;">
+							<col style="width:17%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">번호</th>
+								<th scope="col">청약신청일</th>
+								<th scope="col">가입은행</th>
+								<th scope="col">순위</th>
+								<th scope="col">주택명</th>
+								<th scope="col">주택형</th>
+							<!--<th scope="col">경쟁률</th>-->
+								<th scope="col">청약취소</th>
+								<th scope="col">당첨자발표일</th>
+							</tr>
+						</thead>
+						<tbody id = applyTable>
+							<tr>
+								<td colspan="9" class="list_none" id = applyList>
+									<b class="color_blue">['조회' 버튼을 눌러 신청내역을 확인 하시기 바랍니다.]</b>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+</form>
+
+
+
+
+	</div>
+</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APA03M03";
+</script>
+<!-- <script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/util/hom.all.js"></script> -->
+<script>
+const url = "http://k8s-default-backendi-6566bc7d31-1275982292.ap-northeast-2.elb.amazonaws.com/";
+// http://k8s-default-backendi-6566bc7d31-347925406.ap-northeast-2.elb.amazonaws.com/"
+// 세션 유지 확인
+const callUser = async() => {
+  try{
+    return await axios.get(`${url}session_user`);
+  } catch (error) {console.log(error)}
+}
+const sessionUser = () => {
+  const user = callUser().then(response => {
+  if(response.data.email){
+		var email = response.data.email
+		//consol.log(email)
+		document.querySelector("#email").innerText = `${response.data.email}`
+		// 신청 내역 출력
+		let tmpNum = async() =>{
+			await axios.post(`${url}connect_db`, {
+				query: `SELECT * FROM applications WHERE email = '${email}' ;`})
+				.then((response) => {
+					let lengthData = response.data.length
+					// 없을 경우
+					if(!lengthData) document.querySelector("#applyList").innerHTML = "<b class='color_blue'> [ 주택청약 신청 내역이 없습니다. ] </b>"
+					else{ // 있을 경우
+						//consol.log(response.data)
+						document.querySelector("#applyList").innerHTML = `<b class='color_blue'> [ 주택청약 신청 내역이 ${lengthData}개 있습니다. ] </b>`
+						var tmpStr = ``
+						response.data.forEach((item, i) => {
+							tmpStr += `
+							<tr>
+								<td>${item.numApply}</td>
+								<td>${item.applyDay.split("T")[0]}</td>
+								<td>구름</td>
+								<td>1순위</td>
+								<td>${item.houseNm}</td>
+								<td>${item.houseTy}</td>
+								<td><button type="button" onclick = "cancelApply('${email}', ${item.numApply})">취소하기</button></td>
+								<td>2022-02-18</td>
+							</tr>`
+						});
+
+						document.querySelector("#applyTable").innerHTML = tmpStr
+					}
+				}).catch(err => {console.log(err)});
+		}
+		tmpNum()
+		}
+  }).catch(error => {console.log(error)})
+};
+sessionUser();
+// 신청 취소
+const cancelApply = async(email, num) => {
+	//consol.log(email)
+	//consol.log(num)
+	//consol.log(`DELETE FROM applications WHERE email = '${email}' AND numApply = ${num};`)
+	await axios.post(`${url}connect_db`, {
+		query: `DELETE FROM applications WHERE email = '${email}' AND numApply = ${num};` })
+		.then((response) => {
+			//consol.log(response)
+		}).catch(err => console.log(err))
+		window.location.reload()
+}
+</script>
+</body>
+</html>

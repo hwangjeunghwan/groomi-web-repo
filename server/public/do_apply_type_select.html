@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+	<link rel="apple-touch-icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+	<link rel="shortcut icon" href="https://static.applyhome.co.kr/images/kabhom/common/phone.png"/>
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/hom.css"/>
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/scrap/virtual.css"/>
+
+
+	<link rel="stylesheet" type="text/css" href="css/kabhom/main/leftMenu.css"/>
+	<!-- 배너 슬라이드 추가링크 -->
+	<link rel="stylesheet" href="css/kabhom/main/vendors/swiper.min.css">
+    <script src="js/kabhom/plugin/swiper.min.js"></script>
+
+	<title>구르미 | 청약</title>
+
+
+	<!-- 운영일 경우에만 -->
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143621263-1"></script>
+
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-143621263-1');
+	</script>
+
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery.3.1.1.min.js"></script>
+	<script src="https://static.applyhome.co.kr/js/kabhom/plugin/jquery-ui.min.js"></script>
+	<script src="js/kabhom/main/site.js"></script>
+
+	<!-- 성능제어 Netfunnel, 키보드보안 -->
+	<script src="js/kabhom/com/com.js"></script>
+
+	<!-- 성능제어 Netfunnel -->
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel.js"></script>
+	<script src="https://static.applyhome.co.kr/netfunnel/netfunnel_skin.js"></script>
+
+	<!-- react 및 axios -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js" ></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+
+	<script>
+	document.domain = "applyhome.co.kr";
+
+	window.onpageshow = function(event) {
+		if(event.persisted) {
+
+			window.location.reload(true);
+		}
+	}
+	$(document).ready(function() {
+		if(gfn_isMobile()) {
+			$('#divTab').css("display","none");
+		}
+
+		var gnbTree = $("#gnbTree > li > button");
+		$(gnbTree).on("click", function() {
+				 $(this).parents("li").siblings("li").children("ul").slideUp();
+				 $(this).parents("li").siblings("li").children("button").removeClass("on");
+				 $(this).siblings("ul").slideToggle();
+				 $(this).addClass("on");
+		 });
+	});
+
+
+		var strPopupYn = 'N';
+
+
+		if(window.name == "iframeDialog" && strPopupYn == 'Y')
+		{
+			parent.document.location.href = "/co/coz/selectCrtfctLoginView.do";
+		}
+
+		$(function(){
+
+			 /**
+			 * Description	: 상단 lnb_wrap setting
+			 */
+			$navi = $("#naviUl li").last();
+			var umid = $navi.data("umid");
+			if(umid != null) {
+				$navi.append($("#menu"+umid).next("ul").clone());
+				$navi.find('a').removeAttr('id');
+			}
+
+
+			var strMenuId = "menu" + $("#naviUl li").eq(1).data('mid');
+			$('#gnb #' + strMenuId).addClass('lnb_active');
+
+
+
+		});
+
+	// Form input을 name=value 형식의 object로 변환
+	$.fn.formToObject = function() {
+		var obj = null;
+		try {
+			if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+				var arr = this.serializeArray();
+				if(arr) {
+					obj = {};
+					$.each(arr, function(){
+						obj[this.name] = this.value;
+					})
+				}
+			}
+		} catch (e) {
+			alert(e.message);
+		} finally {
+			return obj;
+		}
+	};
+
+	function formToString(form) {
+		var formData = new FormData($form);
+
+		var object = {};
+		formData.forEach(function(value, key){
+		    object[key] = value;
+		});
+		var json = JSON.stringify(object);
+	}
+
+	function fn_openPopup(url, title) {
+//	    if(gfn_isMobile() == false) {
+	        window.open(url, title);
+//	    }
+	}
+
+	</script>
+</head>
+<body>
+  <div id="" class="sub_content">
+		<div class="sub_visu apply">
+			<div class="sub_visu_box">
+				<div class="sub_visu_txt">
+					<h5> 모집공고단지 청약신청 </h5>
+					<p>주택청약 서비스입니다.</p>
+          <div class="lnb_wrap">
+						<ul class="lnb_box" id="naviUl">
+							<li><a href="main.home.html"><i class="xi-home"></i><span class="blind">홈으로</span></a></li>
+							<li class="mo_none" data-mid="634"><i class="xi-angle-right-thin"></i> 청약신청</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 배너 슬라이드 추가 스크립트 -->
+    <script>
+    var swiper = new Swiper('.swiper-container',{
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+  </script>
+<div class="sub_content_box add_box" id="subContent">
+	<div class="apply_step_box">
+		<h5>
+
+
+
+
+
+
+
+
+
+
+							APT 1순위 청약신청
+
+
+
+
+		</h5>
+		<div class="apply_step_list_box">
+			<ul id="ulStep" class="apply_step_list virtual">
+				<li id="liStep1" class="step_prev">
+					<p>
+						<b><span>완료</span></b>
+					</p> <em>주택선택 및 유의사항 확인</em>
+				</li>
+				<li id="liStep2" class="step_active">
+					<p>
+						<b><span>2</span></b>
+					</p>
+					<em>
+
+
+
+								주택형 선택
+
+
+					</em>
+				</li>
+				<li id="liStep3">
+					<p>
+						<b><span>3</span></b>
+					</p>
+					<em>
+
+
+
+								청약자격 확인 및 입력
+
+
+					</em>
+				</li>
+				<li id="liStep4">
+					<p>
+						<b><span>4</span></b>
+					</p>
+					<em>연락처 등 입력 및 청약신청 내역확인</em>
+				</li>
+				<li id="liStep5">
+					<p>
+						<b><span>5</span></b>
+					</p>
+
+
+							<em>청약완료</em>
+
+
+				</li>
+
+			</ul>
+
+		</div>
+	</div>
+
+
+<!-- <h5 class="sub_sub_tit blind">주택형 선택</h5> -->
+
+		<div id="root"></div>
+		<script type="text/babel">
+		const url = "http://k8s-default-backendi-6566bc7d31-1275982292.ap-northeast-2.elb.amazonaws.com/";
+// http://k8s-default-backendi-6566bc7d31-347925406.ap-northeast-2.elb.amazonaws.com/"
+			class SelectType extends React.Component{
+				constructor(props){
+					super(props);
+					//consol.log(props)
+					this.state = {
+						data : [],
+						houseManageNo : parseInt(location.href.split('?')[1]?.split('=')[1]),
+						nowChecked : null
+					}
+					this.callAPTDetail = this.callAPTDetail.bind(this);
+					this.callAPT = this.callAPT.bind(this);
+					this.moveLocationFront = this.moveLocationFront.bind(this);
+					this.moveLocationBack = this.moveLocationBack.bind(this);
+				}
+
+				componentDidMount(){
+					this.callAPTDetail();
+					this.callAPT();
+				}
+
+				moveLocationFront(e){
+					let index = this.state?.nowChecked;
+
+					if(this.state.nowChecked != null){
+						location.href = `Do.apply.check.html?houseManageNo=${this.state?.houseManageNo}?houseTy=${this.state?.data[index]}`;
+					}
+				}
+				moveLocationBack(e){
+					location.href = 'do_apply_home_select.html'
+				}
+
+				async callAPTDetail(){
+					await axios.post(`${url}connect_db`,
+					{
+					query: `SELECT * FROM api_apt_type_details WHERE houseManageNo=${this.state?.houseManageNo};`
+					}
+					).then((response) => {
+						this.setState({ data : response.data[0].houseTy.split(', ') })
+					}).catch(err=>{
+						console.log(err)
+					});
+				}
+
+				async callAPT(){
+					await axios.post(`${url}connect_db`,
+					{
+					query: `SELECT * FROM api_apt WHERE houseManageNo=${this.state?.houseManageNo};`
+					}
+					).then((response) => {
+						this.setState({ apiData : response.data[0] })
+					}).catch(err=>{
+						console.log(err)
+					});
+				}
+
+				callView(){
+					return this.state.data.map((value, index) =>
+						<p className="radio_st2" tabIndex={index} key={index} onClick={(e) => this.setState({nowChecked:e.target.value})}>
+							<input type="radio" name="modelNo" id={"modelNo0"+index}
+								value={index}
+								data-ty={value}
+								/>
+							<label htmlFor={"modelNo0"+index}
+								id={"lbHouseTy01"+index}>{value}
+								</label>
+						</p>
+					)
+				}
+
+				render(){
+					return <>
+					<div className="cert_wrap">
+						<div className="apply_choose_wrap">
+							<div className="sub_tit mt_30">
+								주택형 선택
+								<div className="explan"> <button><img src="https://static.applyhome.co.kr/images/kabhom/sub/sub_detail_txt.png" alt="상세설명"/></button>
+									<div id="explan2" className="line_box add_line_box">
+										<div className="line_content">
+											<p>주택형(전용면적 기준)을 선택해 주세요.</p>
+											<button type="button" className="detail_close">
+												<i className="xi xi-close-thin"></i><span className="blind">팝업 닫기</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div className="apply_cho_box mt_30 add_box">
+								<form name="reqstForm" id="reqstForm" method="POST">
+									<h5>
+										<span>APT</span><span>{this.state.apiData?.sido}</span><span>{this.state.apiData?.houseNm}(민영주택)</span>
+									</h5>
+									<ul className="apply_cho_list ext_list">
+										<li>
+											{this.callView()}
+										</li>
+									</ul>
+
+									<input type="hidden" name="processTm" id="processTm" value="18112988075823181"/>
+									<input type="hidden" name="houseManageNo" id="houseManageNo" value="2021000907" />
+									<input type="hidden" name="pblancNo" id="pblancNo" value="2021000907" />
+									<input type="hidden" name="houseTy" id="houseTy" value="" />
+								</form>
+							</div>
+						</div>
+
+
+						<div className="btn_box mt_10">
+							<button type="button" className="btn_cancel" id="btnSubmitPre" onClick = {this.moveLocationBack}>
+								<img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_left.png" alt=""/> 이전
+							</button>
+							<button type="button" className="btn_submit" id="btnSubmitNext" onClick = {this.moveLocationFront}>
+								다음 <img src="https://static.applyhome.co.kr/images/kabhom/sub/btn_right.png" alt=""/>
+							</button>
+						</div>
+					</div>
+
+					</>
+				}
+			}
+			ReactDOM.render(<SelectType/>, document.getElementById("root"));
+		</script>
+
+<script>
+	var checkSubmit = true;
+
+	var rCd = "";
+
+
+	$(function() {
+		$(".popOpen").on("click", function() {
+			var openPop = $(this).attr("data-pop");
+			$("." + openPop + "").show().focus();
+		});
+
+		$(".close2").click(function() {
+			$(this).parents(".popWrap").hide();
+		});
+
+		$("#sidoList").on("change", function() {
+			var sidoList = document.getElementById("sidoList");
+			var sidoCode = sidoList.options[sidoList.selectedIndex].value;
+			if (sidoList == '-') {
+				return;
+			}
+
+			var param = {
+				"sidoCode" : sidoCode
+			};
+
+			var oOptions = new Object();
+			oOptions.CallBack = "fn_makeSiggList";
+			oOptions.requestData = param;
+			oOptions.dataType = "json";
+
+			$net.ajax('/ap/app/reqst/selectSiggList.do', oOptions);
+		});
+
+		/* $(".explan").hover(
+				function() {
+					$(this).parents(".sub_tit").find(".add_line_box").css(
+							"display", "block")
+				},
+				function() {
+					$(this).parents(".sub_tit").find(".add_line_box").css(
+							"display", "")
+				});
+ */
+ $(".explan").on("click", function() {
+     $(this).parents(".sub_tit").siblings().find(".add_line_box").hide();
+     $(this).parents(".apply_choose_wrap").nextAll().find(".add_line_box").hide();
+     $(this).find(".add_line_box").toggle();
+ });
+
+ $(".detail_close").click(function() {
+     $(this).parent(".add_line_box").hide();
+ });
+
+
+	$("#btnSubmitPre").on("click", function() {
+	  //$net.href("/ap/app/reqst/selectPblancChoise.do");
+		$net.submit("reqstForm", "/ap/app/reqst/selectPblancChoise.do");
+		});
+
+	$("#btnSubmitNext").on("click", function() {
+			fn_next();
+		});
+	});
+
+	function fn_next() {
+		if ($("#houseManageNo").val() < 1 || $("#pblancNo").val() < 1) {
+			return;
+		}
+
+		if (fn_checkValidation() == false) {
+			return;
+		}
+
+		if (checkSubmit) {
+			checkSubmit = false;
+			fn_saveHouseTypeChoise();
+		}
+	}
+
+	function fn_checkValidation() {
+		var $selModel = $("input[name=modelNo]:checked");
+		if ($selModel.val() == null || $.trim($selModel.val()).length == 0) {
+			alert("주택형을 선택하여 주십시오.");
+			$selModel.focus();
+			return false;
+		}
+	}
+
+	/**
+	 * 저장
+	 * @param aScrapingResult String
+	 *
+	 */
+	function fn_saveHouseTypeChoise() {
+		var $selModel = $("input[name=modelNo]:checked");
+
+		var param = {
+	        "processTm" : $("#processTm").val(),
+			"houseManageNo" : $("#houseManageNo").val(),
+			"pblancNo" : $("#pblancNo").val(),
+			"houseTy" : $selModel.data("ty"),
+			"modelNo" : $.trim($selModel.val())
+		};
+		var vUrl = "/ap/app/reqst/insertHouseTyChoise.do";
+
+		var oOptions = new Object();
+		oOptions.CallBack = 'fn_nextCallBack';
+		oOptions.requestData = param;
+		oOptions.dataType = "json";
+
+		//$net.ajax(vUrl, oOptions);
+	}
+
+	/**
+	 * 설명		: 스크래핑 성공 시 다음 step 이동
+	 * 사용방식	: fn_nextCallBack()
+	 * 주의		:
+	 * 리턴		:
+	 */
+	function fn_nextCallBack(vResBody) {
+		if (vResBody.codeRtn == "200") {
+		  //$net.href("/ap/app/reqst/step3.do");
+			$("#processTm").val(vResBody.processTm);
+			$net.submit("reqstForm", "/ap/app/reqst/step3.do");
+		} else {
+			gfn_hideCmmnProgressBar();
+			alert(vResBody.msgRtn);
+			checkSubmit = true;
+		}
+	}
+
+	function fn_popClose(popid) {
+		$("#" + popid).fadeOut();
+	}
+
+</script>
+
+
+
+
+	</div>
+</div>
+<div id="divForPopup"></div>
+
+
+<div class="loding_wrap" id="commonProgressBar">
+	<div class="lod_wrap_box">
+		<div class="lod_box">
+			<i class="xi-spinner-2 xi-spin"></i>
+			<p>처리중입니다.</p>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	var gvPgmId = "APR10R03";
+</script>
+<script src="js/kabhom/com/hom.core.js"></script>
+<script src="js/kabhom/com/hom.all.js"></script>
+</body>
+</html>

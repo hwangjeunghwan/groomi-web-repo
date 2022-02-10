@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구르미 | 청약</title>
+<link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  max-width: 500px;
+	margin: 0 auto !important;
+	float: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+#point {
+ display: inline;
+ padding-left: 10px;
+}
+</style>
+</head>
+<body>
+
+<form method="post" action="/process/register">
+
+  <div class="container">
+    <a class="navbar-brand" href="main.home.html" style="width:200px; margin:0px; padding:0px;">
+      <img src="images\logo_v1.svg" style="width:15%;" alt="Logo">
+    </a>
+    <h1>회원가입</h1>
+    <p>회원가입 양식에 맞게 입력해주십시오.</p>
+    <hr>
+
+    <label for="email"><b>이메일</b></label>
+    <input type="text" placeholder="이메일을 입력해주세요." name="email" id="email" required>
+
+    <label for="password"><b>비밀번호</b></label>
+    <input type="password" placeholder="비밀번호 입력해주세요." name="password" id="password" required>
+
+    <label for="confPassword"><b>비밀번호 확인</b></label>
+    <input type="password" placeholder="비밀번호를 다시한번 입력해주세요." name="confPassword" id="confPassword" required>
+
+    <label for="period_nohome"><b>무주택기간 점수</b><p id="point"><a href="AddpointCaculatorView.html">점수계산</a></p></label>
+    <input type="number" placeholder="0" name="period_nohome" id="period_nohome" required>
+
+    <label for="num_dependents"><b>부양가족 점수</b><p id="point"><a href="AddpointCaculatorView.html">점수계산</a></p></label></label>
+    <input type="number" placeholder="0" name="num_dependents" id="num_dependents" required>
+
+    <label for="period_subscription"><b>청약통장 점수</b><p id="point"><a href="AddpointCaculatorView.html">점수계산</a></p></label></label>
+    <input type="number" placeholder="0" name="period_subscription" id="period_subscription" required>
+    <hr>
+
+
+    <button type="submit" class="registerbtn">회원가입</button>
+  </div>
+
+  <div class="container signin">
+    <p>이미 아이디가 있나요? <a href="sign.in.html">로그인</a>.</p>
+  </div>
+</form>
+
+</body>
+</html>

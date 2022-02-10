@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright https://static.applyhome.co.kr/images/kabhom/common/favicon.ico -->
+  <link rel="icon" type="image/ico" href="images/logo_v1.svg" />
+  <title>구르미 | 청약</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  @font-face { font-family: 'NanumGothic';
+  src: url('fonts/NanumGothic.eot');
+  src: url('fonts/NanumGothic.eot') format('embedded-opentype'),
+  url('fonts/NanumGothic.woff') format('woff');}
+  body {
+    font: 20px NanumGothic, sans-serif;
+    line-height: 2;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+    min-height:0px !important;
+    height: 800px;
+    background-image: url('images/home_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  .bg-4 {
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #33B7FF !important;
+  }
+  </style>
+</head>
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="width:200px; margin:0px; padding:0px;">
+        <img src="images\logo_v1.svg" style="width:40%;" alt="Logo">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right" id="target">
+        <li><a href="AptCancelList.html">청약 신청 내역/취소</a></li>
+        <!-- <li><a href="AddpointSave.html">청약가점 정보변경</a></li> -->
+        <li><a href="/process/logout">로그아웃</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  const url = "http://k8s-default-backendi-6566bc7d31-1275982292.ap-northeast-2.elb.amazonaws.com/";
+  // http://k8s-default-backendi-6566bc7d31-347925406.ap-northeast-2.elb.amazonaws.com/"
+  let email;
+  const callUser = async() => {
+    try{
+      return await axios.get(`${url}session_user`);
+    } catch (error) {console.log(error)}
+  }
+  const sessionUser = () => {
+    const user = callUser().then(response => {
+
+        //consol.log(response.data);
+        if(response.data==null){
+          var target = document.getElementById("target");
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          var text = document.createTextNode('로그인');
+          a.appendChild(text);
+          a.setAttribute("href", "sign.in.html");
+          li.appendChild(a);
+          target.appendChild(li);
+          document.querySelector('#applyDiv').innerHTML=`
+          <a href="sign.in.html" class="btn btn-default btn-lg btn-info">
+            로그인
+            <p style="font-size: 8px; margin:0px"><br>* 로그인 후 청약 신청을 하실 수 있습니다</p>
+          </a>`
+      }
+
+    }).catch(error => {console.log(error)})
+  };
+  sessionUser();
+
+</script>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" id = applyDiv>
+  <a href="do_apply_start.html" class="btn btn-default btn-lg btn-info">
+    청약 신청하기
+  </a>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p>
+</footer>
+
+</body>
+</html>
